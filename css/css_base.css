@@ -10,3 +10,50 @@ body{
   font-weight:bold;
   color: blue;
 }
+
+#span{
+  color: green;
+}
+
+.span{
+  color: red;
+}
+
+
+p+span+a{
+  color: brown;
+}
+
+code{
+  color: red;
+}
+
+*{
+  font-family: "微软雅黑";  /* 全局选择器 */
+}
+
+h3 span{
+  color: red; /* 后代选择器 通常用来定位一个指定的元素 */
+}
+
+.h3 a {
+  color: blue; /* 后代选择器 */
+}
+
+
+ul+p{
+  color: blueviolet;  /* 相邻选择器会选择前一个元素后面的元素作为选择器对象 */
+}
+
+#container>ul{
+  color: red;
+}
+
+
+
+
+
+
+
+
+

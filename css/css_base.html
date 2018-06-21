@@ -28,9 +28,13 @@
     <span class="span">内部样式</span>
 </p>
 
+<hr>
 <!-- 选择器 作用 以及 分类 -->
 <p>选择器的作用相当于给元素加一个标识，通过该标识可以定位指定的元素做样式修改</p>
 <p class="title">*常用选择器</p>
+<span style="color: red">注:选择器的种类只有三种 元素、id 类选择器，其余的选择器是在这三种选择器
+  中组合来的 比如后代和子元素选择器等
+</span>
 <ul>
 <li> id选择器</li>
 <li>类选择器</li>
@@ -45,14 +49,100 @@
 <li>派生选择器</li>
 <li>全局选择器</li>
 </ul>
+
+<p style="color: blue ;font-weight:bold">选择器的选用原则 什么情况下用什么样的选择器</p>
+<ol>
+  <li>最常用的选择器是类选择器</li>
+  <li>li、td、dd等经常大量连续出现，并且样式相同或者相类似的标签，我们采用类选择器跟标签名选择器结合的后代选择器 .xx li/td/dd {} 的方式选择</li>
+  <li>极少的情况下会用ID选择器</li>
+</ol>
+
+<h3>怎样提升CSS选择器性能</h3>
+<ol>
+  <li>避免使用通用选择器<br>
+  <code>.content {color: red;}</code>
+  </li>
+  <li>避免使用标签或 class 选择器限制 id 选择器 <br>
+      <code>
+        BAD <br>
+        button#backButton {…} <br>
+        BAD .menu-left#newMenuIcon {…} <br>
+        GOOD #backButton {…} <br>
+        GOOD #newMenuIcon {…}
+      </code>
+  </li>
+  <li>避免使用标签限制 class 选择器 <br>
+       <code>
+        BAD <br>
+        treecell.indented {…} <br>
+        GOOD .treecell-indented {…} <br>
+        BEST .hierarchy-deep {…}
+       </code>
+  
+  </li>
+  <li>避免使用多层标签选择器。使用 class 选择器替换，减少css查找 <br>
+      <code>
+        BAD
+        treeitem[mailfolder="true"] > treerow > treecell {…} 
+        GOOD .treecell-mailfolder {…}
+      </code>
+  </li>
+  <li>避免使用子选择器 <br>
+      <code>
+        BAD <br>
+        treehead treerow treecell {…}  <br>
+        BETTER, BUT STILL BAD <br>
+        treehead > treerow > treecell {…} <br> 
+        GOOD .treecell-header {…}
+      </code>
+
+  </li>
+  <li>使用继承 <br>
+    <code>
+       BAD <br>
+       #bookmarkMenuItem > .menu-left { list-style-image: url(blah) } <br>
+       GOOD <br>
+      #bookmarkMenuItem { list-style-image: url(blah)}
+    </code>
+  </li>
+</ol>
+
+<hr>
+
 <div>
-    <span class="span">类选择器</span><br>
-    <span id="span">id选择器</span><br>
-    <span>元素选择器</span><br>
+    <span class="span">类选择器 设置字体颜色为红色</span><br>
+    <span id="span">id选择器 设置字体颜色为绿色</span><br>
+    <span>元素选择器 设置字体颜色为黄色</span><br>
 </div>
-<div>
-    <p>后代选择器</p>
+
+
+<h3 class="h3"><a href="#">我是一个空链接</a> <span>我是一段文字，我的颜色是红色</span></h3>
+
+<a href="#">伪类选择器</a>
+
+<p>ul标签之前的相邻选择器</p>
+
+<ul>
+  <li>A</li>
+  <li>B</li>
+  <li>C</li>
+</ul>
+
+<div id="container">
+  <ul>
+    <li> List Item
+      <ul>
+        <li> Child </li>
+      </ul>
+    </li>
+    <li> List Item </li>
+    <li> List Item </li>
+    <li> List Item </li>
+  </ul>
 </div>
+
+
+<p>ul标签之后的相邻选择器</p>
 
 <!-- css样式 背景、文本、字体、链接、列表、表格 -->
 <!-- css 盒子模型 -->
@@ -60,6 +150,7 @@
 <!-- css 浮动 -->
 <!-- css 布局 -->
 <!-- css 锚点定位 -->
+
 
 </body>
 </html>
