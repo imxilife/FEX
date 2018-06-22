@@ -4,6 +4,7 @@ body{
   margin: 0;
   padding: 0;
   margin-left: 20px;
+  height: 7680px;
 }
 
 .title{
@@ -27,6 +28,7 @@ p+span+a{
 code{
   color: red;
 }
+/* ------------------------------------------divier------------------------------------------------- */
 
 *{
   font-family: "微软雅黑";  /* 全局选择器 */
@@ -41,13 +43,45 @@ h3 span{
 }
 
 
-ul+p{
-  color: blueviolet;  /* 相邻选择器会选择前一个元素后面的元素作为选择器对象 */
+h5+span{
+  color: blueviolet;  /* x+y相邻选择器会选择前一个元素后面的第一个元素设置样式 */
 }
 
-#container>ul{
+h5~p{
+  color: yellowgreen; /* x~y节点组合选择器会选择前一个元素后的所有符合条件的元素设置 */
+}
+
+
+.box>div{
+  color: blueviolet;
+}
+
+
+a[target]{  /* 属性选择器 */
   color: red;
 }
+
+a[href="http://www.baidu.com"]{  /* 属性选择器的一种 只有满足属性值是某个指定的值才有效 */
+  color: deeppink;
+}
+
+a[href^="http"]{
+  background: url(../test.jpg) no-repeat;
+}
+
+.box_box:after{
+  content: "a";
+  width: 20px;
+  height: 20px;
+  background: mediumspringgreen no-repeat;
+  visibility: visible;
+  display: block;
+}
+
+.box_3 a:hover{
+  color: deepskyblue;
+}
+
 
 
 
