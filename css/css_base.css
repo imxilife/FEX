@@ -21,10 +21,6 @@ body{
 }
 
 
-p+span+a{
-  color: brown;
-}
-
 code{
   color: red;
 }
@@ -57,17 +53,6 @@ h5~p{
 }
 
 
-a[target]{  /* 属性选择器 */
-  color: red;
-}
-
-a[href="http://www.baidu.com"]{  /* 属性选择器的一种 只有满足属性值是某个指定的值才有效 */
-  color: deeppink;
-}
-
-a[href^="http"]{
-  background: url(../test.jpg) no-repeat;
-}
 
 .box_box:after{
   content: "a";
@@ -78,9 +63,132 @@ a[href^="http"]{
   display: block;
 }
 
-.box_3 a:hover{
-  color: deepskyblue;
+
+
+.ul :nth-child(3){  /* 选择第三个子元素 */
+  color: red;
 }
+
+.ul :nth-last-child(3){ /* 选择倒数第三个元素 */
+  color: blue;
+}
+
+
+ul:nth-of-type(5){     /* 选取第几个对应类型的元素 */
+  border: 2px orange solid;
+}
+
+
+
+ul:nth-last-of-type(1){  
+  border: 2px red solid;
+}
+
+.oll li{
+  border-bottom: 1px white solid;
+  background: #3f3f3f;
+  list-style-type: none;
+  width: 300px;
+  height: 50px;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+}
+
+.oll :last-child{   /* 选择最后一个子类元素 */
+  border-bottom: none;
+}
+
+.oll :nth-child(1){
+  color: red;
+}
+
+.a :nth-child(2){
+  color: red;
+}
+.a :first-child{
+  color: blue;
+}
+.a:last-child{
+  color: green;
+}
+
+
+.divbox+p{ /* 相邻选择器 同级 兄弟关系 */
+  color: blue;
+  font-weight: bold;
+  font-family: "华文细黑";
+}
+
+.divbox span{  /* 后代选择器 父与子关系 */
+  color: deeppink;
+  font-family: "华文细黑";
+  font-size: 30px;
+}
+
+/* .divbox > span{
+  color: orangered;
+} */
+
+.boxdiv>p{  /* 子选择器 只会选择父类下面满足条件的所有直接子元素 父与子关系 */
+  color: magenta;
+  font-size: 30px;
+}
+
+.di h1~p{  /* 兄弟节点匹配选择器 匹配该节点后的所有满足条件的选择器  同级兄弟关系*/
+  color: tomato;
+  font-size: 30px;
+}
+
+.a_link:link {
+  color: green;
+}
+
+.a_link:visited {
+  /* 被访问后 */
+  color: gray;
+}
+
+.a_link:hover {
+  /* 鼠标滑过 */
+  color: red;
+}
+
+.a_link:active {
+  /* 点击时 */
+  color: blue;
+}
+
+
+
+.alink:visited{
+  color:red;
+}
+.alink:link {
+  color: green;
+}
+.alink:hover{
+  color:blue;
+}
+
+/* 伪类和伪元素 */
+/* 
+伪类: link active visited hover
+伪元素 :nth-child(n)  :first-child :last-child
+       :first-line :first-letter 
+       :after :before
+       :nth-last-child(n)
+       :nth-last-type(n)
+*/
+/* 通配符选择器 (*) */
+
+.x::first-line{
+  color: green;
+  font-size: 14px;
+}
+
+
+
 
 
 
