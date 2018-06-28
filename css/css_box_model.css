@@ -1,0 +1,51 @@
+
+body,div,p,h1,h2,h3,h4,h5,h6{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+span{
+  color: white;
+  background:red;
+}
+
+.span_1{
+  width: 200px;
+  height: 200px;;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px yellow solid;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.span_2{
+  padding:0;
+}
+
+div{
+background: red;
+border: 1px yellow solid;
+color: white;
+width: 200px;
+height: 200px;
+}
+
+.middle{
+  padding: 10px;
+  margin: 10px;
+}
+
+.box{
+  display: inline-block;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+
+

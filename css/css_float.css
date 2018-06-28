@@ -1,0 +1,45 @@
+
+
+*{
+  padding: 0;
+  margin: 0;
+}
+.box{
+  border: 10px green solid;
+/*   overflow: hidden; */
+}
+
+.box p{
+  width: 200px;
+  height: 200px;
+  border: 1px solid yellow;
+  color: white;
+  font-size: 80px;
+}
+
+
+.p_1{
+  background: #000;
+  opacity: 0.5;
+
+}
+
+.p_2{
+  background: green;
+  float: left;
+}
+
+.p_3{
+  background: red;
+}
+
+.p_4{
+  width: 200px;
+  height: 300px;
+  color: white;
+  background: magenta;
+  clear: left;  
+  font-size: 60px;
+}
+
+
