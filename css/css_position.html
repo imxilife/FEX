@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,14 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
-  <link rel="stylesheet" href="css_position.css">
+  <link rel="stylesheet" href="./css_position.css">
 </head>
 <body>
-  <div class=".box">
-    <div>A</div>
-    <div>B</div>
-    <div>c</div>
+
+  <!-- 定位 -->
+  <!-- 
+    常见的定位 包括 普通流 定位 浮动
+    普通流:就是按照标准的CSS布局方式 块级元素单独一行显示，行内元素在一行内显示 如果一行显示满了就换一样显示。
+    定位: static relative absolute fixed strick
+    浮动: float
+
+    *******这里是浮动定位的总结*******
+    static：静态定位就是普通流的方式，给他设置 left right top bottom 是无效的
+    relative: 这种定位方式是相对于当前所在的位置进行定位，如果没有设置任何方向的偏移，这种定位是和static定位一样。
+    一旦设置了left or right or top or bottom这些偏移量，那么他会基于当前的位置进行位置偏移，偏移后并不会影响其相邻元素的定位(其他元素在哪还是在哪)
+    他移出来的空间也不会被相邻的元素所填补。但偏移后可能会覆盖到其他元素上，遮住部分或全部相邻元素。
+    absolute： 这是一种很强大的定位。一旦元素设置成了absolute属性，表示进行绝对定位。那么定位的元素会从当前位置的文档流中脱离出来
+     相对于已定位属性的父类进行定位(这里的已定位的是说它的祖先定位属性是relative或普通定位)，他原来所占据的空间会被相邻的元素占据。在没有设置偏移的情况下他会浮在原地上方，有X,Y,Z轴空间的既视感。
+     fixed: 这也是一种脱离文档流的定位不过，和绝对定位很相似，不过它是相对于视口进行定位的。
+     stick: 这是一种relative+fixed方式的定位，一般用于首部固定一个东西，一旦脱离首部区域他会悬浮于内容上面。窗口滚到到离顶部一定距离就固定在首部。
+   -->
+
+  <div class="static">
+    <div>静态定位 设置 位置偏移量是无效的</div>
+    <div>相对对位 left:20px top:20px 相对于当前位置偏移
+      会遮盖相邻元素
+    </div>
+    <div>绝对定位</div>
   </div>
+
+<div>固定定位 居中 left 50% top 50% margin-left=-100px margin-top=-100px</div>
+
 </body>
 </html>
 

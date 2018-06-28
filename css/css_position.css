@@ -1,9 +1,51 @@
 
 
-.box div{
-  width: 200px;
-  height: 200px;
-  border-radius: 2px;
-  background: red;
-  border: 1px solid yellow;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+ height: 7680px;
+}
+
+
+ .static div{
+   width: 200px;
+   height: 200px;
+   background: red;
+   color: white;
+   border: 1px yellow solid;
+ }
+
+ .static :first-child{
+   position: static;
+   left: 20px;
+   top: 40px;
+ }
+
+.static :nth-child(2){
+  background: gold;
+  position: relative;
+  left: 20px;
+  top: 20px;
+  color: black;
+}
+
+.static :nth-child(3){
+  background: limegreen;
+  position: absolute;
+  right: 0;
+}
+
+.static {
+  position: static;
+}
+
+.static :nth-child(4){
+  top: 50%;
+  left: 50%;
+  position: fixed;
+  margin-top: -100px;
+  margin-left: -100px;
 }
