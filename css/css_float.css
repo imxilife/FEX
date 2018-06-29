@@ -4,6 +4,10 @@
   padding: 0;
   margin: 0;
 }
+
+body{
+  height: 7680px;;
+}
 .box{
   border: 10px green solid;
 /*   overflow: hidden; */
@@ -31,6 +35,7 @@
 
 .p_3{
   background: red;
+  color: black;
 }
 
 .p_4{
@@ -40,6 +45,41 @@
   background: magenta;
   clear: left;  
   font-size: 60px;
+}
+
+
+.float_box{
+  width: 200px;
+  height: 220px;
+  background: red;
+  float: right;
+  margin-left: 20px;
+}
+
+.float_box+p{
+  background: gold;
+  /* margin-left: 220px; */
+}
+
+.float_parent{
+  border: 2px limegreen solid;
+}
+
+
+
+.netease :first-child{
+  width: 200px;
+  height: 200px;
+  background: gold;
+  color: black;
+  float: left;
+}
+
+.netease :last-child{
+  background: limegreen;
+  color: black;
+  height: 200px;
+  width: 200px;
 }
 
 
