@@ -10,6 +10,10 @@ body{
 }
 
 
+.static {
+  position: relative;
+}
+
  .static div{
    width: 200px;
    height: 200px;
@@ -35,17 +39,71 @@ body{
 .static :nth-child(3){
   background: limegreen;
   position: absolute;
-  right: 0;
+  left: 0;
 }
 
-.static {
-  position: static;
-}
 
-.static :nth-child(4){
+
+.fixed{
+  width: 200px;
+  height: 200px;
+  background: red;
+  color: white;
   top: 50%;
   left: 50%;
   position: fixed;
   margin-top: -100px;
   margin-left: -100px;
 }
+
+.position{
+  margin-top: 200px;
+  height: 200px;
+  border: 2px limegreen solid;
+  position: static;
+}
+
+.position div{
+  width: 200px;
+  height: 200px;
+  background: red;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.X{
+  height: 1000px;
+  border: 5px dashed limegreen;
+}
+
+.X div{
+  width: 200px;
+  height: 200px;
+  background: gold;
+  border: 1px solid limegreen;
+}
+
+.X :nth-child(2){
+  position: absolute;
+  color: red;
+  right: 0;
+  top: 0;
+}
+
+.one{
+  height: 1300px;
+  border: 5px solid red;
+  position: relative;
+}
+
+.two{
+  height: 1100px;
+  border: 5px dotted rebeccapurple;
+}
+
+
+
+
+
