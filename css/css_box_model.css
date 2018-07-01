@@ -5,6 +5,10 @@ body,div,p,h1,h2,h3,h4,h5,h6{
   box-sizing: border-box;
 }
 
+body{
+  height: 7680px;
+}
+
 span{
   color: white;
   background:red;
@@ -29,7 +33,6 @@ span{
 
 div{
 background: red;
-border: 1px yellow solid;
 color: white;
 width: 200px;
 height: 200px;
@@ -42,6 +45,30 @@ height: 200px;
 
 .box{
   display: inline-block;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+
+
+.one_1,.one_2{
+  width: 200px;
+  height: 200px;
+  color: white;
+}
+
+.one_1{
+  color: black;
+  background:  gold;
+  border: 5px solid limegreen;
+  padding: 10px;
+  margin: 10px;
+}
+
+.one_2{
+  background: red;
+  border: 5px yellow solid;
   padding: 10px;
   margin: 10px;
 }
