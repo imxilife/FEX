@@ -82,4 +82,42 @@ body{
   width: 200px;
 }
 
+.style{
+  background: limegreen;
+  color: white;
+  font-family: "MicroSoft YaHei";
+  border: 1px  limegreen solid;
+  border-radius: 4px;
+  margin-left: 2px;
+  margin-right: 2px;
+  /* clear: both; */  /* 清除浮动的方式一 通过clear属性来清除  */
+}
+
+.style_box{
+  /*  overflow: hidden; */  /* 清除浮动的方式二 通过给浮动元素的父类设置overflow:hidden属性 */
+}
+
+/* 清除浮动的第三种方法 就是在浮动元素的父元素最后添加一个空标签，设置display：block 然后应用清除
+浮动属性 clear */
+/* .cleanfix {
+  clear: both;
+  display: block;
+} */
+
+.style_box img{
+  float: left;
+  margin-left: 8px;
+}
+
+/* 清除浮动的第四种方法 通过伪元素的方式实现 也是最推荐的一种方法 */
+ .style_box ::after{
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+
+
+
+
 
