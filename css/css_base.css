@@ -188,6 +188,30 @@ ul:nth-last-of-type(1){
 }
 
 
+/* h1+p 只选择h1后面的第一个p元素 */
+.h1p h1+p{
+  background: red;
+  color: white;
+}
+
+/* h1~p 选择h1后面所有的p元素 */
+.h1p h1~p{
+  font-size: 24px;
+}
+
+/* div span 只会选择第一个span元素 即使还有其他的span子元素 */
+.divp span{
+  font-size: 20px;
+  color: red;
+}
+
+/* div >p 只会选择div下面连续的p元素，如果中间有隔断则只会设置第一个元素的样式 */
+.divp > p{
+  color: limegreen;
+}
+
+
+
 
 
 
