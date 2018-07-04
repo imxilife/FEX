@@ -1,0 +1,22 @@
+
+
+.box_1{
+
+width: 300px;
+height: 300px;
+background-color: gold;
+background-image: url("./music.png");
+background-repeat: no-repeat;
+background-attachment: scroll;
+background-origin: content-box;
+background-position: 10px 20px;
+}
+
+
+.box_2 ul li{
+  /* list-style-image: url("./list_item.png") */
+  list-style-position: inside;
+  list-style-type:decimal;
+  list-style-image: url("./remind.png");
+  font-size: 16px;
+}
