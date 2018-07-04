@@ -1,0 +1,22 @@
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+.header{
+  height: 50px;
+  background-color: rgb(51, 51, 51);
+  position: relative;
+}
+
+.banner {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+}
+
+.banner ul li{
+  list-style-type: disc;
+  display: inline-block;
+}
