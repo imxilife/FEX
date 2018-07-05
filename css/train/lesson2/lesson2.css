@@ -1,19 +1,28 @@
-
-body,ul,h3,h4,p{
+body,
+ul,
+h2,
+h3,
+h4,
+h5,
+p,
+dd {
   margin: 0;
   padding: 0;
 }
 
+body{
+  padding: 0 80px 0 80px;
+  background-color: #000;
+}
 
-.header{
+.header {
   background-color: rgb(51, 51, 51);
   position: relative;
   height: 64px;
   margin-right: 5px;
 }
 
-
-.logo{
+.logo {
   position: absolute;
   left: 16px;
   top: 50%;
@@ -21,13 +30,12 @@ body,ul,h3,h4,p{
   background: transparent;
 }
 
-.nav{
+.nav {
   position: absolute;
   right: 10px;
   top: 50%;
   margin-top: -10px;
 }
-
 
 .nav div {
   display: inline-block;
@@ -36,13 +44,13 @@ body,ul,h3,h4,p{
 /* 
   这里的设置为什么不能放到 .nav div下面？
 */
-.nav div a{
+
+.nav div a {
   color: white;
   text-decoration: none;
   font-size: 12px;
   margin-left: 2px;
 }
-
 
 /* 
   怎样得到一个圆  思路:一个正方形 且半径为高的一半就是圆。
@@ -50,7 +58,8 @@ body,ul,h3,h4,p{
   又因为要水平显示所以只能是inline-block ,这样可以设置宽高了,border-radius是半径，设置为
   高的1/2。要得到一个圆 宽、高值必须相等。
   */
-.nav div span{
+
+.nav div span {
   display: inline-block;
   width: 6px;
   height: 6px;
@@ -59,37 +68,129 @@ body,ul,h3,h4,p{
   margin-left: 4px;
 }
 
-.content{
+.content {
   background-color: rgb(222, 222, 222);
   padding: 10px;
 }
 
-.content section{
+.content section {
   background-color: white;
   padding-top: 30px;
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 15px;
+  margin-bottom: 20px;
+  border-bottom: 5px solid rgb(221, 221, 221);
+  border-right: 5px solid rgb(221, 221, 221);
 }
 
-.content section h4,p,span{
+.content section h4,
+h5,
+p,
+span,
+ol {
   margin-top: 15px;
   line-height: 32px;
+  color: #424242;
+  font-family: "Microsoft YaHei";
 }
 
-.content section img{
+.content section img {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
+.picbox {
+  border: 1px solid rgb(222, 222, 222);
+}
 
+.section3_title {
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: bold;
+}
 
+.section3_box {
+  width: 780px;
+  border: 1px solid #999999;
+  margin-top: 30px;
+  margin-left: 42px;
+  box-sizing: border-box;
+  padding: 20px;
+}
 
+.section3_box div img {
+  margin: 0;
+}
 
+/* 设置text-aligin 文字不居中 */
 
+.section3_box span {
+  text-align: center;
+}
 
+/* 
+设置Table的细边框方式：
 
+设置table的CSS为 {
+  border-collapse: collapse;
+  border: none;
+}
+,
+再设置td的CSS为 {
+  border: solid #000 1px;
+}
+，大功告成！而且Word也能认出这种设置。
+*/
 
+.table {
+  border-collapse: collapse;
+  /*相邻的边合并 */
+  border: none;
+  /* 表格本身没有设置边框 */
+}
 
+.table tr td {
+  width: 200px;
+  border: solid rgb(204, 204, 204) 1px;
+  /* 单个格设置边框 相邻的边会合并 */
+}
 
+.tr_1 {
+  color: white;
+  background-color: rgb(51, 51, 51);
+  font-size: 14px;
+  font-weight: small;
+}
 
+.tr_2 {
+  background-color: #999999;
+}
+
+.section5_box_1{
+  margin: 0;
+  padding: 0;
+}
+
+.section5_box_1 .div_1{
+  display: inline-block;
+  width: 3px;
+  height: 40px;
+  background-color: red;
+}
+
+.section5_box_1 .div_2{
+  display: inline-block;
+}
+
+.section5_box_1 .div_2 span{
+  line-height: 40px;
+}
+
+.footer{
+  height: 64px;
+  background-color: #000;
+  text-align: center;
+  line-height: 64px;
+  margin-right: 4px;
+}
