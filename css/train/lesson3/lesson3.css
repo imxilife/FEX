@@ -1,0 +1,83 @@
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+div{
+  box-sizing: border-box;
+}
+
+.main{
+  background-color: #eee;
+  border: 1px #999 solid;
+  padding: 20px;
+  margin: 20px;
+  position: relative;
+}
+
+.logo{
+  width: 200px;
+  padding: 20px;
+  border: 1px #999 solid;
+  background-color: #fff;
+}
+
+.logo img{
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+
+.logo::after{
+  content: "";
+  height: 0;
+  clear: both;
+  display: block;
+}
+
+.logo span{
+  margin-left: 6px;
+}
+
+.desc{
+  padding: 20px;
+  border: 1px #999 solid;
+  background-color: #fff;
+  position: absolute;
+  margin-left: 220px;
+  margin-top: 20px;
+  top: 0;
+}
+
+.team_member{
+  padding: 20px;
+  background-color: #fff;
+  border: 1px #999 solid;
+  width: 120px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.team_member div{
+  width: 80px;
+  height: 80px;
+  margin-bottom: 20px;
+}
+
+.team_member :first-child{
+  background-image: url('./fk_1.png');
+}
+.team_member :nth-child(2){
+  background-image: url('./fk_2.png');
+}
+.team_member :nth-child(3){
+  background-image: url('./fk_3.png');
+}
+.team_member :last-child{
+  background-image: url('./fk_4.png');
+  margin-bottom: 0;
+}
