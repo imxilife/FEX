@@ -172,20 +172,26 @@ ol {
   padding: 0;
 }
 
-.section5_box_1 .div_1{
-  display: inline-block;
+/* 当有元素是inline-block时,且他后面也是一个inline-block或inline元素
+  vertical-algin属性很重要 通常要设置它们的垂直对齐方式。这里用的是基于
+  父类高的中线对齐 也可以是 基于top bottom来对齐。
+*/
+.section5 .section5_box_1 .div_1{
   width: 3px;
   height: 40px;
-  background-color: red;
-}
-
-.section5_box_1 .div_2{
+  background: red;
+  vertical-align: middle;
   display: inline-block;
 }
 
-.section5_box_1 .div_2 span{
-  line-height: 40px;
+.section5 .section5_box_1 .span_1{
+  vertical-align: middle;
+  margin-left: 6px;
+  font-family:'Microsoft YaHei';
+
 }
+
+
 
 .footer{
   height: 64px;
