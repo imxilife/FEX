@@ -6,50 +6,18 @@
   padding: 0;
 }
 
-.section{
-  min-width: 400px;
-  min-height: 200px;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-top: -100px;
-  margin-left: -200px;
-  background: #ccc;
-}
-
 
 /* 如果存在绝对定位的子元素，父元素一定要设置高度。
 因为父元素的高度是子元素撑起的，一旦所有的子元素设置绝对定位后会脱离
 原来的文档流导致父元素高度塌陷。
 但如果父元素设置了高度就算没有子元素撑起父元素高度，因为父元素自身
 有高度而不会坍陷。
+
+注:绝对定位是相对于其设置定位属性不是static的祖先元素，如果其祖先没有
+设置定位属性(默认是static定位属性)会找到祖先元素的上一级设置了定位属性的元素，如果找不到最终
+会相对于当前浏览器的视口来定位。
 */
-/* .article{
-  width: 100%;
-  height: 200px;
-  position: relative;
-}
 
-
-div{
-  width: 50px;
-  height: 50px;
-  background: #fc0;
-  position: absolute;
-}
-
-
-.div_1{
-  border-radius: 0 0 50px 0;
-  left: 0;
-  top: 0;
-}
-
-.div_2{
-  border-radius: 50px 0 0 0;
-  bottom: 0;
-  right: 0;
-} */
 
 .main{
   min-width: 400px;
