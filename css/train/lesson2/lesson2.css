@@ -144,6 +144,7 @@ ol {
 */
 
 .table {
+  width: 100%;
   border-collapse: collapse;
   /*相邻的边合并 */
   border: none;
@@ -167,6 +168,10 @@ ol {
   background-color: #999999;
 }
 
+.setcion5{
+  width: 100%;
+}
+
 .section5_box_1{
   margin: 0;
   padding: 0;
@@ -188,10 +193,55 @@ ol {
   vertical-align: middle;
   margin-left: 6px;
   font-family:'Microsoft YaHei';
-
 }
 
 
+
+.section5 .form div{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* lable标签 */
+.section5 .form .left{
+  display: inline-block;
+  width: 40%; 
+  text-align: right;
+}
+
+.section5 .form .left:last-of-type{
+   vertical-align: top;
+}
+
+.section5 .form .right {
+  margin-left: 15px;
+}
+
+.section5 .form .placeholder {
+  margin-left: 41.2%;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.section5 .form input[type='submit']{
+  width: 100%; 
+  padding: 10px 0 10px 0;
+  border: 1px solid blue;
+  border-radius: 5px;
+  background-color: blue;
+  color: #fff;
+}
+
+.section5 .form input[type='email'],
+.section5 .form input[type='password'], 
+.section5 .form div textarea, 
+.section5 .form div select{
+  padding: 4px;
+}
+
+.section5 .form div textarea{
+  width: 55%;
+}
 
 .footer{
   height: 64px;

@@ -215,74 +215,71 @@
     </section>
     <section class="section5">
       <div class="section5_box_1">
-      
-          <div class="div_1"></div>
-          <span class="span_1">关于我们</span>
+
+        <div class="div_1"></div>
+        <span class="span_1">关于我们</span>
 
       </div>
 
       <form action="" class="form">
-        <div class="email">
-          <label for="">请输入邮箱地址</label>
-          <input type="text" placeholder="请输入邮箱地址">
+        <div>
+          <label for="email" class="left">请输入邮箱地址</label>
+          <input placeholder="请输入邮箱地址" type="email" id="email" class="right">
           <br>
-          <span>邮箱地址请按要求格式输入</span>
+          <div class="placeholder">邮箱地址请按要求格式输入</div>
         </div>
 
-        <div class="password">
-          <label for="">请输入密码</label>
-          <input type="password">
+        <div>
+          <label for="password" class="left">请输入密码</label>
+          <input type="password" class="right">
         </div>
 
 
-        <div class="password_again">
-          <label for="">请重复输入密码</label>
-          <input type="password">
+        <div>
+          <label for="password" class="left">请重复输入密码</label>
+          <input type="password" class="right">
           <br>
-          <span>密码请为6-16位英文数字</span>
+          <div class="placeholder">密码请为6-16位英文数字</div>
         </div>
 
-        <div class="radio">
-          <label for="">性别</label>
-          <input type="radio" name="sex" value="man">
-          <label for="">男</label>
-          <input type="radio" name="sex" value="women">
-          <label for="">女</label>
+        <div>
+          <label for="radio" class="left">性别</label>
+          <input type="radio" name="gender" value="male" class="right" id="male">
+          <label for="male">男</label>
+          <input type="radio" name="gender" value="female" id="female">
+          <label for="female">女</label>
         </div>
 
-        <div class="selected">
-          <label for="">城市</label>
-          <select name="city" id="city">
+        <div>
+          <label for="" class="left">城市</label>
+          <select name="city" id="city" class="right">
             <option value="bj">北京</option>
             <option value="sh">上海</option>
             <option value="gz">广州</option>
           </select>
         </div>
 
-        <div class="checkbox">
-          <label for="">爱好</label>
-          <input type="checkbox">
-          <label for="">运动</label>
-          <input type="checkbox">
-          <label for="">艺术</label>
-          <input type="checkbox">
-          <label for="">科学</label>
+        <div>
+          <label for="" class="left">爱好</label>
+          <input type="checkbox" class="right" id="sport"><label for="sport">运动</label>
+          <input type="checkbox" id="art"><label for="art">艺术</label>
+          <input type="checkbox" id="science"><label for="science">科学</label>
         </div>
 
-        <div class="spec">
-          <label for="">个人描述</label>
-          <textarea name="desc" id="desc" cols="30" rows="10" placeholder="输入你的介绍"></textarea>
+        <div>
+          <label for="" class="left">个人描述</label>
+          <textarea class="right" name="desc" id="desc" cols="100" rows="10" placeholder="输入你的介绍"></textarea>
         </div>
 
-        <div class="btn">
-          <input type="submit" name="确认提交" width="100%">
+        <div>
+          <input type="submit" value="确认提交" width="100%">
         </div>
       </form>
     </section>
   </div>
 
   <div class="footer">
-    <span style="color: white">版权所有</span>
+    <span style="color: white">版权所有&copy</span>
   </div>
 
 </body>
