@@ -39,8 +39,8 @@
 
 .right{
   width: 40%;
-  background: limegreen;
   float: right;
+  background-color: white;
 }
 
 .footer{
@@ -80,4 +80,114 @@
   margin-top: 20px;
   list-style-type: none;
 }
+
+.wrap .left article .title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.wrap .left article .pic_colum_1 .pic_content{
+  display: inline-block;
+  margin: 20px 0 10px 20px;
+  border: 1px solid #999;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.wrap .left article .image_center{
+  display: block;
+  width: 510px;
+  height: 310px;
+  margin: 0 auto;
+}
+
+.wrap .left article ol {
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.wrap .left article table{
+  width: 100%;
+}
+.wrap .left article table tr th{
+  text-align: left;
+}
+
+
+.wrap .left article table .last_colun {
+  colSpan:1;
+  align:center;
+}
+
+
+
+
+.main .wrap .right::before{
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+
+#about{
+  width: 3px;
+  height: 44px;
+  display: inline-block;
+  background-color: red;
+  vertical-align: bottom;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+#about+span{
+  line-height: 44px;
+  margin-left: 10px;
+  vertical-align: bottom;
+}
+
+
+#form .lable_left{
+  display: inline-block;
+  width: 40%;
+  text-align: right;
+  font-size: 14px;
+}
+
+#form .placeholder{
+  margin-left: 42.5%;
+  font-size: 14px;
+}
+
+#form div textarea{
+  vertical-align: top;
+}
+
+#form .input_right{
+  padding: 4px;
+  margin: 0 0 2px 10px;
+  font-size: 14px;
+}
+
+#form div{
+  margin: 10px;
+}
+
+#form .submit{
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #00f;
+  color: white;
+  box-sizing: border-box;
+  border: 0 solid;
+  margin: 10px auto;
+}
+
+
+
+
+
+
 
