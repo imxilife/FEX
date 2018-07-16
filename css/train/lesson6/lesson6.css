@@ -1,11 +1,9 @@
-
-
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.global{
+.global {
   width: 980px;
   height: 1386px;
   background-color: white;
@@ -13,13 +11,13 @@
   margin: 0 auto;
 }
 
-.header{
+.header {
   width: 892px;
   border-bottom: 2px solid #938e8c;
   position: relative;
 }
 
-.header .logo{
+.header .logo {
   display: inline-block;
   width: 110px;
   height: 61px;
@@ -31,7 +29,7 @@
   vertical-align: bottom;
 }
 
-.header .logo span{
+.logo span {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -39,7 +37,7 @@
   margin-bottom: 2px;
 }
 
-#date{
+.header .logo+span {
   font-family: "黑体";
   font-size: 12px;
   color: #d45d5c;
@@ -47,3 +45,145 @@
   right: 0;
   bottom: 0;
 }
+
+.article_top {
+  margin-top: 20px;
+}
+
+.top_content {
+  width: 641px;
+  height: 301px;
+  background-image: url(./left_top_pic.png);
+  display: inline-block
+}
+
+.top_content .banner {
+  position: relative;
+}
+
+.top_content .banner .left_green,
+.right_pink {
+  width: 191px;
+  height: 301px;
+  opacity: 0.5;
+  position: absolute;
+}
+
+.top_content .banner .left_green {
+  left: 0;
+  top: 0;
+}
+
+.top_content .banner .right_pink {
+  right: 0;
+  top: 0;
+}
+
+.article_top .tc_sub {
+  margin-left: 35px;
+  vertical-align: top;
+  display: inline-block
+}
+
+.article_top .tc_sub h5 {
+  width: 203px;
+  height: 2px;
+  background-color: #cc8091;
+}
+
+.article_top .tc_sub .p1 {
+  font-size: 24px;
+  font-family: "Microsoft YaHei";
+  color: #000000;
+  text-decoration-line: underline;
+  font-weight: unset;
+  margin-top: 10px;
+}
+
+.article_top .tc_sub .p1::first-letter {
+  font-weight: bold;
+}
+
+.article_top .tc_sub .p1+p {
+  font-size: 12px;
+  font-family: "楷体";
+  color: #676767;
+  line-height: 10px;
+}
+
+.article_top .tc_sub .p_bold {
+  font-weight: bold;
+  font-size: 116px;
+  color: #75b86b;
+  font-family: "Microsoft YaHei";
+}
+
+.article_top .tc_sub .box_number .number {
+  color: #cc8091;
+  font-size: 55px;
+  font-family: "Microsoft YaHei";
+}
+
+.article_top .tc_sub .box_number .number+div {
+  display: inline-block;
+  color: #cc8091;
+  font-family: "Microsoft YaHei";
+}
+
+.article_top .tc_sub .box_number .number+div :first-child {
+  font-size: 21px;
+}
+
+.article_top .tc_sub .box_number .number+div :last-child {
+  font-size: 12px;
+}
+
+.middle 
+.middle_green,
+.middle_yellow,
+.middle_pink {
+  width: 25%;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration-line: underline;
+  display: inline-block;
+}
+
+.middle .middle_box{
+  display: block;
+  width: 25%;
+  margin-left: 20px;
+  float: left;
+}
+.middle .middle_box::after{
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+
+.middle .middle_box .middle_green{
+  color: #418c59;
+}
+
+.middle .middle_box .middle_green+p,
+.middle .middle_box .middle_yellow+p,
+.middle .middle_box .middle_pink+p{
+  font-size: 12px;
+  color: #231815;
+  opacity: 0.7;
+  font-family: "Microsoft YaHei";
+  margin-top: 4px;
+}
+
+.middle .middle_box .middle_yellow {
+  color: #d2994f;
+}
+.middle .middle_box .middle_pink {
+  color: #cc7680;
+}
+
+.middle .middle_box span{
+  font-size: 12px;
+}
+
