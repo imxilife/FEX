@@ -152,14 +152,14 @@
 .middle .middle_box{
   display: block;
   width: 25%;
-  margin-left: 20px;
+  margin-right: 20px;
   float: left;
 }
-.middle .middle_box::after{
+
+.middle::after{
   content: '';
   display: block;
   clear: both;
-  visibility: hidden;
 }
 
 .middle .middle_box .middle_green{
@@ -185,5 +185,33 @@
 
 .middle .middle_box span{
   font-size: 12px;
+}
+
+.middle .middle_box .span_special{
+  color: #cd4a48;
+  opacity: 0.7;
+  font-family: "Microsoft YaHei";
+}
+
+.article_bottom{
+  margin-top: 20px;
+}
+
+.article_bottom .left,.right{
+  width: 50%;
+}
+
+.article_bottom .left p{
+  font-size: 42px;
+  font-family: "黑体";
+  font-weight: bold;
+  color: #11456b;
+}
+
+.article_bottom .left h5 {
+  width: 415px;
+  height: 2px;
+  background-color: #11456b;
+  margin-top: 16px;
 }
 
