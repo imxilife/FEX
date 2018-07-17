@@ -198,7 +198,11 @@
 }
 
 .article_bottom .left,.right{
-  width: 50%;
+  width: 48%;
+  box-sizing: border-box;
+  vertical-align: top;
+  display: inline-block;
+  margin-top: 50px;
 }
 
 .article_bottom .left p{
@@ -209,9 +213,120 @@
 }
 
 .article_bottom .left h5 {
-  width: 415px;
+  width: 478px;
   height: 2px;
   background-color: #11456b;
   margin-top: 16px;
 }
+
+.left .left_top_sub_div .left_top_sub_div_span{
+  font-size: 70px;
+  color: #f5e327;
+  font-family: "Microsoft YaHei";
+  float:left;
+  margin-right: 10px;
+  padding-bottom: 4px;
+}
+
+.left .left_top_sub_div .left_top_sub_div_span+div{
+  margin-top: 20px;
+}
+
+.left .left_top_sub_div::after{
+  content: '';
+  display: block;
+  clear: both;
+  visibility: hidden;
+}
+
+
+.left .left_top_sub_div .left_top_sub_div_span+div,
+.left .left_bottom_sub_div .left_bottom_sub_span {
+  font-size: 12px;
+  font-family: "宋体";
+  color: #767777;
+}
+
+#img{
+  float: right;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+
+
+
+.article_bottom .right{
+  margin-left: 30px;
+}
+
+/* 不设置div宽高 ，设置其背景不生效 */
+.right .right_top{
+  width: 458px;
+  height: 275px;
+  background: url('./right_bottom_pic.png') no-repeat;
+  position: relative;
+}
+
+
+.right .right_top .right_top_sub_div_optical
+{
+  width: 458px;
+  height: 61px;
+  background-color: #000;
+  opacity: 0.4;
+  position: absolute;
+  left: 0;
+  bottom: 16px;
+  z-index: 1;
+}
+
+
+.right .right_top .divider{
+  width: 458px;
+  height: 61px;
+  position: absolute;
+  left: 0;
+  bottom: 16px;
+  z-index: 999;
+  vertical-align:top;
+}
+
+.right .right_top .divider h4{
+  width: 3px;
+  height: 44px;
+  background-color: #72b16a;
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.right .right_top .divider h4+p{
+  display: inline-block;
+  color: #fff;
+  font-size: 26px;
+  margin-left: 20px;
+  line-height: 44px;
+}
+
+.right .right_top .divider p+span{
+  font-size: 12px;
+  font-family: "Microsoft YaHei";
+  color: #72b16a;
+  margin-left: 20px;
+  line-height: 44px;
+}
+
+.right .right_bottom{
+  width: 459px;
+  height: 390px;
+  margin-top: 10px;
+  background-color: #eeeed4;
+}
+
+.right_bottom right_bottom_sub_top ul li{
+  margin-left: 10px;
+}
+
+
+
 
