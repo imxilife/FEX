@@ -12,7 +12,7 @@
 }
 
 .header {
-  width: 892px;
+  width: 964px;
   border-bottom: 2px solid #938e8c;
   position: relative;
 }
@@ -319,14 +319,102 @@
 .right .right_bottom{
   width: 459px;
   height: 390px;
-  margin-top: 10px;
+  margin-top: 14px;
   background-color: #eeeed4;
+  position: relative;
 }
 
-.right_bottom right_bottom_sub_top ul li{
+/* .right_bottom right_bottom_sub_top ul li{
   margin-left: 10px;
 }
+ */
+
+#aaa{
+ padding-left: 30px;
+ padding-top: 20px;
+ line-height: 40px;
+}
+
+#aaa li{
+   list-style-image: url("./triangle.png");
+   font-size: 12px;
+   color: #5a5a5a;
+}
+
+.right_bottom .right_bottom_sub_bottom .right_bottom_left {
+  width: 260px;
+  height: 160px;
+  background-color: #d55d5c;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  display: inline-block;
+}
 
 
+.right_bottom .right_bottom_sub_bottom .right_bottom_left span{
+  font-size: 110px;
+  color: #ffffff;
+  font-family: "Microsoft YaHei";
+  vertical-align: center;
+}
+.right_bottom .right_bottom_sub_bottom .right_bottom_left span+h4{
+  display: inline-block;
+  width: 2px;
+  height: 86px;
+  background-color: #ffffff;
+  vertical-align: center;
+}
 
+.right_bottom .right_bottom_sub_bottom .right_bottom_left .text{
+  display: inline-block;
+  color: #ffffff;
+  vertical-align: center;
+}
 
+.right_bottom .right_bottom_sub_bottom .right_bottom_left .text h4{
+  display: inline;
+  font-size: 21px;
+  font-family: "黑体";
+  font-weight: normal;
+  margin-left: 6px;
+}
+#p_text{
+  display: inline-block;
+  font-size: 12px;
+  font-weight: normal;
+  font-family: "黑体";
+  margin-left: 4px;
+}
+
+.right_bottom .right_bottom_sub_bottom .right_bottom_right{
+  display: inline-block;
+  float: right;
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #5a5b5b;
+  font-family: "黑体"
+}
+
+.right_bottom .right_bottom_sub_bottom .right_bottom_right p span{
+  font-size: 22px;
+  color: #d45d5c;
+}
+
+.footer div{
+  margin-top: 40px;
+  width: 964px;
+  height: 1px;
+  background-color: #938e8c;
+  position: relative;
+}
+
+.footer div span{
+  color: #d45d5c;
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 12px;
+  font-family: "黑体";
+}
