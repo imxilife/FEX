@@ -6,7 +6,7 @@ http.createServer(function (req,res) {
     res.write('<h1>Node JS</h1>');
     res.write('<p>hello world</p>');
     res.end();
-}).listen(3000);
+}).listen(8080);
 
 /* 
 异步IO 和 事件
@@ -22,3 +22,15 @@ event.on('submit',function () { //function是具体的回调函数
   setTimeout(function () {
       event.emit('submit');   // submit对应是要执行的事件,funtion(){...}是具体的回调函数.  event.on(event,callback)将事件和回调注册到event事件处理队里中，等待执行的时候，调用事件,执行回调 返回结果
   },1000);
+
+
+  var fs = require('fs');
+  var ret;
+  var file = fs.readFile("./test.html",function (err,date) {
+      if(err){
+          console.log('err');
+      }else{
+       ret = date;
+       console.log(ret);
+      }
+  });
