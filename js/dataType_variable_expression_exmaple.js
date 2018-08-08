@@ -1,4 +1,4 @@
-
+/* 
 var a = 3;
 var b = a;
 b++;
@@ -67,10 +67,24 @@ fn();
 /* console.log(y);
 console.log(x); */
 
-var name = 'xm';
+/* var name = 'xm';
 function fn(){
   name = 'xh';
   console.log(name);
 }
 fn();
 console.log(name);
+ */
+
+
+ //变量作用域
+
+ var  a = 1;  //可以在全局的环境中访问到
+ function fn(){
+   var a = 2;
+   console.log(a);  //a的生命周期就是函数块，一旦函数执行完毕 a的"寿命"就到头了
+                    //打印a的时候会在局部的环境中先找 看没有a 如果有就用a 没有就在外层找
+                    //原则就是一层一层找，只能由内向外找不能由外向内找
+ }
+
+
