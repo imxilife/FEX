@@ -77,14 +77,175 @@ console.log(name);
  */
 
 
- //变量作用域
+//变量作用域
 
- var  a = 1;  //可以在全局的环境中访问到
- function fn(){
-   var a = 2;
-   console.log(a);  //a的生命周期就是函数块，一旦函数执行完毕 a的"寿命"就到头了
-                    //打印a的时候会在局部的环境中先找 看没有a 如果有就用a 没有就在外层找
-                    //原则就是一层一层找，只能由内向外找不能由外向内找
+var a = 1; //可以在全局的环境中访问到
+function fn() {
+  var a = 2;
+  console.log(a); //a的生命周期就是函数块，一旦函数执行完毕 a的"寿命"就到头了
+  //打印a的时候会在局部的环境中先找 看没有a 如果有就用a 没有就在外层找
+  //原则就是一层一层找，只能由内向外找不能由外向内找
+}
+
+//作用域链
+var name = "xm";
+function fn(params) {
+  var age = 18;
+  function fn2(params) {
+    var sex = 'male';
+  }
+  //fn.sex
+  //fn.fn2
+    //fn2 sex
+}
+
+
+console.log(window.name === name);
+console.log(window.fn === fn);
+
+var name = 'xm';
+function fn(params) {
+  var name = 'xh';
+  var sex = 'male';
+  function fn2(params) {
+    var name = 'xhei';
+    var age = 18;
+  }
+}
+
+//变量对象分析
+/**
+ * 
+ * 全局作用域对象
+ *  window
+ *      -name
+ *      -fn
+ *       fn 局部变量对象
+ *          -name
+ *          -sex
+ *          -fn2
+ *           fn2 局部变量对象
+ *               -age
+ *               -name
+ * 
+ */
+
+
+//js解析机制
+
+var name = 'xm';
+var age = 18;
+function fn(params) {
+  console.log(name);
+  var name = 'xh';
+  var age = 18;
+}
+
+/**
+ * 
+ * window
+ *    -name = undefined
+ *    -age = undefined
+ *    fn 拿过来啥都不做
+ * 
+ * fn 
+ *   -name = undefined
+ *   -age = undefined
+ */
+
+ var a = 9; 
+ var age = 10; 
+ var a = 10; //预解析 变量名冲突的情况下 都是undefined
+
+ var a = 19;  //预解析过程中 函数名和变量名冲突的情况下 以函数名为主
+ function a(){
+   var a = 10;
+   return a;
  }
+
+
+ function b(){  //预解析过程中 函数名名冲突的 以最后一个函数名为主
+   return 13;
+ }
+
+ function c(){
+   return 12;
+ }
+
+ function b(){
+   return 15;
+ }
+
+
+ //JS预解析详解
+
+ //情况一
+ console.log(a); //undefined
+ var a = 1;
+
+ //情况二
+ console.log(a); //报错
+ a = 1;
+
+ //情况三
+ console.log(a); //function a{...}
+ var a =1; 
+ console.log(a); //1
+ function a(params) {
+   console.log(2);
+ }
+
+ //情况四
+ var a = 3;
+ console.log(a);  //3
+ function a(params) {
+   console.log(4);
+ }
+ console.log(a); //3
+ a(); //报错
+
+//预解析是分标签进行的
+//情况五
+var a = 1;
+function fn(){
+  console.log(a);
+  var a = 2;
+}
+fn();
+console.log(a);
+
+//情况六
+var a = 1;
+function fn(params) {
+  console.log(a);
+  a = 2;
+}
+fn();   //1
+console.log(a);  //2
+
+//情况七
+var a = 1;
+function fn(a) {
+  console.log(a);  //函数的参数当成局部变量预解析
+  a = 2;
+}
+fn(); //undefined
+console.log(a); //1
+
+//情况八
+var a = 1;
+function fn(a) {
+  console.log(a);
+  a = 2;  //这里只是把参数改成了2 修改的是局部变量 对全局的a是没有影响的。
+}
+fn(a); //1
+console.log(a);  //1(局部参数修改不会影响到全局的a输出)
+
+
+
+
+
+
+
 
 
