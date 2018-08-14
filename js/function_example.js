@@ -1,4 +1,4 @@
-
+/* 
 
 function add(a,b) {
   console.log(a+b);
@@ -24,10 +24,20 @@ var obj = {
   'fn':add,
 };
 
-console.log(obj.fn(2,4));
+console.log(obj.fn(2,4)); */
 
 
-
+//函数的定义
+console.log(sum()); //输出 I’m function
+function sum(){
+  console.log("I'm function");
+}
+//console.log(sum());   //输出 I'm function
+console.log(summ());  //报错
+var summ = function (params) {
+  console.log("hello world");
+};
+//console.log(summ());  //输出 hello world
 
 
 
