@@ -79,16 +79,16 @@ console.log(name);
 
 //变量作用域
 
-var a = 1; //可以在全局的环境中访问到
+/* var a = 1; //可以在全局的环境中访问到
 function fn() {
   var a = 2;
   console.log(a); //a的生命周期就是函数块，一旦函数执行完毕 a的"寿命"就到头了
   //打印a的时候会在局部的环境中先找 看没有a 如果有就用a 没有就在外层找
   //原则就是一层一层找，只能由内向外找不能由外向内找
-}
+} */
 
 //作用域链
-var name = "xm";
+/* var name = "xm";
 function fn(params) {
   var age = 18;
   function fn2(params) {
@@ -111,7 +111,7 @@ function fn(params) {
     var name = 'xhei';
     var age = 18;
   }
-}
+} */
 
 //变量对象分析
 /**
@@ -133,13 +133,13 @@ function fn(params) {
 
 //js解析机制
 
-var name = 'xm';
+/* var name = 'xm';
 var age = 18;
 function fn(params) {
   console.log(name);
   var name = 'xh';
   var age = 18;
-}
+} */
 
 /**
  * 
@@ -153,7 +153,7 @@ function fn(params) {
  *   -age = undefined
  */
 
- var a = 9; 
+/*  var a = 9; 
  var age = 10; 
  var a = 10; //预解析 变量名冲突的情况下 都是undefined
 
@@ -174,13 +174,13 @@ function fn(params) {
 
  function b(){
    return 15;
- }
+ } */
 
 
  //JS预解析详解
 
  //情况一
- console.log(a); //undefined
+ /* console.log(a); //undefined
  var a = 1;
 
  //情况二
@@ -239,7 +239,23 @@ function fn(a) {
   a = 2;  //这里只是把参数改成了2 修改的是局部变量 对全局的a是没有影响的。
 }
 fn(a); //1
-console.log(a);  //1(局部参数修改不会影响到全局的a输出)
+console.log(a);  //1(局部参数修改不会影响到全局的a输出) */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

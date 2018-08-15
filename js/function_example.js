@@ -72,7 +72,7 @@ console.log(person.age);
 
 
  //函数的调用
-var vbr = function (){
+/* var vbr = function (){
   console.log('vbr');
 }();   //自执行函数
 
@@ -93,13 +93,34 @@ function fabore(num){
   }
 
   var a = fabore(9);
-  console.log('a='+a);
+  console.log('a='+a); */
 
 
 
 
+function factorial(num) {
+  if (num == 1) {
+    return 1;
+  }
+  return num * arguments.callee(num - 1);
+}
+
+var a = factorial(10);
+console.log(a);
 
 
+
+
+function add(num1,num2){
+  return num1+num2;
+}
+
+
+//实参比形参少的
+add(1);  //undefined
+
+//实参比形参多的
+add(1,2,3,4,56);  //3
 
 
 
