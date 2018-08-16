@@ -87,6 +87,10 @@ console.log(person.age);
     console.log('params');
 }();
 
+console.log(function (params) {
+  console.log('aaaa');
+}());
+
 function fabore(num){
     if(num<=1) return 1;
     return num*fabore(num-1);
