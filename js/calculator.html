@@ -19,34 +19,79 @@
 
     .btn {
       margin-left: 10px;
-      width: 30px;
+      width: 60px;
       height: 30px;
       font-size: 20px;
     }
 
-    .input_text{
+    .input_text {
       height: 25px;
       text-align: center
     }
   </style>
+
+  <!--   <script>
+         var first_input_number = document.querySelector('.input_text_first');
+          var last_input_number = document.querySelector('.input_text_last');
+          var sign = document.querySelector('#sign');
+          var result = document.querySelector('#result');
+          var btns = document.querySelectorAll('btn');
+
+          console.log('btns.lenght:'+btns.length);
+
+          for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+              switch (this.title) {
+                case 'add':
+                  addHandler();
+                  break;
+
+                case 'subtract':
+                  subtractHandler();
+                  break;
+
+                case 'multipy':
+                  multipyHandler();
+                  break;
+
+                case 'division':
+                  divisionHandler();
+                  break;
+
+                default:
+                  break;
+              }
+            }
+          }
+
+
+          function addHandler() {
+
+            console.log('execute add function');
+            result.innerHTML = Number.parseInt(first_input_number.innerHTML.toString, 10) + Number.parseInt(last_input_number.innerHTML.toString, 10);
+
+          } -->
+
+  </script>
+
 </head>
 
 <body>
 
-  <div>
+  <div id="wrap">
 
     <p>
-      <input type="text"  class="input_text">
+      <input type="text" class="input_text_first input_text">
       <span id="sign">+</span>
-      <input type="text"  class="input_text">
+      <input type="text" class="input_text_last input_text">
       <span>=</span>
       <span id="result"></span>
     </p>
     <p class="control">
-      <input type="button" value="+" class="btn">
-      <input type="button" value="-" class="btn">
-      <input type="button" value="*" class="btn">
-      <input type="button" value="÷" class="btn">
+      <input type="button" value="+" class="btn" title="add">
+      <input type="button" value="-" class="btn" title="subtract">
+      <input type="button" value="*" class="btn" title="multipy">
+      <input type="button" value="÷" class="btn" title="division">
     </p>
 
 
@@ -54,9 +99,121 @@
 
   <script>
 
-      
+    //管理代码
+    var calcElem = {
+      first_input_number: document.querySelector('.input_text_first'),
+      last_input_number: document.querySelector('.input_text_last'),
+      sign: document.querySelector('#sign'),
+      result: document.querySelector('#result'),
+      btns: document.querySelectorAll('.btn')
+    }
 
 
+    console.log('execute....');
+
+    each(calcElem.btns, function (index, elem) {
+      elem.onclick = function () {
+        switch (this.title) {
+          case 'add':
+            console.log('here');
+            addHandler();
+            break;
+          case 'subtract':
+            subtractHandler();
+            break;
+          case 'multipy':
+            multipyHandler();
+            break;
+          case 'division':
+            divisionHandler();
+            break;
+          default:
+            break;
+        }
+      }
+    })
+
+
+
+    function each(array, fn) {
+      for (var i = 0; i < array.length; i++) {
+        fn(i, array[i]);
+      }
+    }
+
+    /* 
+      总结:
+      1、获取输入框的值用的是value属性
+      2、span等元素显示文本结果用的是 innerHTML属性
+      3、在HTML中加载script代码有两种方式  一种是内嵌式 一种是外部引入式。内嵌式 是在HTML body或者head中插入script标签，然后在内部写代码
+        而外部引入式是在head插入script标签然后通过src属性来引入源文件地址.
+      4、获取DOM元素可以通过querySelectorAll 或者getElementById()方法来做
+    */
+
+
+    /* 
+     优化
+     1、更新符号
+     2、功能封住
+    */
+
+      //管理代码
+    var opreation = {
+      add: function (num1, num2) {
+        return (Number.parseInt(num1, 10)) + Number.parseInt(num2, 10)
+      },
+
+      subtract: function (num1, num2) {
+        return (Number.parseInt(num1, 10)) - (Number.parseInt(num2, 10));
+      },
+
+      multipy: function (num1, num2) {
+        return (Number.parseInt(num1, 10)) * (Number.parseInt(num2, 10));
+      },
+
+      division: function (num1, num2) {
+        return (Number.parseInt(num1, 10)) / (Number.parseInt(num2, 10));
+      }
+    }
+
+    function updateSign(symbol) {
+      calcElem.sign.innerHTML = symbol;
+    }
+
+
+
+    function outputResult(ret) {
+      calcElem.result.innerHTML = ret;
+    }
+
+    function addHandler() {
+      updateSign("+");
+      outputResult(opreation.add(calcElem.first_input_number.value, calcElem.last_input_number.value));
+    }
+
+    function subtractHandler() {
+
+      updateSign("-");
+
+      outputResult(opreation.subtract(calcElem.first_input_number.value, calcElem.last_input_number.value));
+
+    }
+
+    function multipyHandler() {
+
+      updateSign("×");
+
+      outputResult(opreation.multipy(calcElem.first_input_number.value, calcElem.last_input_number.value));
+
+    }
+
+    function divisionHandler() {
+
+      updateSign("÷");
+
+      outputResult(opreation.division(calcElem.first_input_number.value, calcElem.last_input_number.value));
+
+    }
   </script>
 
 </body>
