@@ -30,50 +30,6 @@
     }
   </style>
 
-  <!--   <script>
-         var first_input_number = document.querySelector('.input_text_first');
-          var last_input_number = document.querySelector('.input_text_last');
-          var sign = document.querySelector('#sign');
-          var result = document.querySelector('#result');
-          var btns = document.querySelectorAll('btn');
-
-          console.log('btns.lenght:'+btns.length);
-
-          for (var i = 0; i < btns.length; i++) {
-            btns[i].onclick = function () {
-              switch (this.title) {
-                case 'add':
-                  addHandler();
-                  break;
-
-                case 'subtract':
-                  subtractHandler();
-                  break;
-
-                case 'multipy':
-                  multipyHandler();
-                  break;
-
-                case 'division':
-                  divisionHandler();
-                  break;
-
-                default:
-                  break;
-              }
-            }
-          }
-
-
-          function addHandler() {
-
-            console.log('execute add function');
-            result.innerHTML = Number.parseInt(first_input_number.innerHTML.toString, 10) + Number.parseInt(last_input_number.innerHTML.toString, 10);
-
-          } -->
-
-  </script>
-
 </head>
 
 <body>
@@ -100,37 +56,6 @@
 
   <script>
     //管理代码
-    var calcElem = {
-      first_input_number: document.querySelector('.input_text_first'),
-      last_input_number: document.querySelector('.input_text_last'),
-      sign: document.querySelector('#sign'),
-      result: document.querySelector('#result'),
-      btns: document.querySelectorAll('.btn')
-    }
-
-    console.log('execute....');
-
-    each(calcElem.btns, function (index, elem) {
-      elem.onclick = function () {
-        updateSign(this.value);
-        outputResult(operate(this.title, calcElem.first_input_number.value, calcElem.last_input_number.value));
-      }
-    })
-
-    function operate(name,num1,num2) {
-       console.log('num1:'+num1+"|"+'num2:'+num2);
-       //if(!opreation[name]) throw new Error('can not found this method');
-       return opreation[name](num1,num2);
-    }
-
-
-
-    function each(array, fn) {
-      for (var i = 0; i < array.length; i++) {
-        fn(i, array[i]);
-      }
-    }
-
     /* 
       总结:
       1、获取输入框的值用的是value属性
@@ -139,55 +64,91 @@
         而外部引入式是在head插入script标签然后通过src属性来引入源文件地址.
       4、获取DOM元素可以通过querySelectorAll 或者getElementById()方法来做
       5、开放封闭原则 可以添加新功能，但新功能不能深入代码中去修改，只能通过的暴露的接口来增加功能，内部的实现是个黑盒子。
+      6、模块化
     */
 
+
+    //通过自执行函数封装成模块
+    (function () {
+      var calcElem = {
+        first_input_number: document.querySelector('.input_text_first'),
+        last_input_number: document.querySelector('.input_text_last'),
+        sign: document.querySelector('#sign'),
+        result: document.querySelector('#result'),
+        btns: document.querySelectorAll('.btn')
+      }
+
+      console.log('execute....');
+
+      each(calcElem.btns, function (index, elem) {
+        elem.onclick = function () {
+          updateSign(this.value);
+          //outputResult(operate(this.title, calcElem.first_input_number.value, calcElem.last_input_number.value));
+          outputResult(operate(this.title, calcElem.first_input_number.value, calcElem.last_input_number.value));
+        }
+      })
+
+      //功能操作封装模块
+      var operate = (function (name, num1, num2) {
+        //管理代码 
+        var opreation = {
+          add: function (num1, num2) {
+            return (Number.parseInt(num1, 10)) + Number.parseInt(num2, 10)
+          },
+          subtract: function (num1, num2) {
+            return (Number.parseInt(num1, 10)) - (Number.parseInt(num2, 10));
+          },
+          multipy: function (num1, num2) {
+            return (Number.parseInt(num1, 10)) * (Number.parseInt(num2, 10));
+          },
+          division: function (num1, num2) {
+            return (Number.parseInt(num1, 10)) / (Number.parseInt(num2, 10));
+          },
+          addOperation: function (name, fn) {
+            if (opreation[name]) {
+              throw new Error('方法已经存在');
+            } else {
+              opreation[name] = fn;
+              return this;
+            }
+          }
+        }
+
+        function operate(name) {
+          //if(!opreation[name]) throw new Error('can not found this method');
+          return opreation[name].apply(opreation,[].slice.call(arguments,1,arguments.length));  // 因为不知道要传入的个数，所以这里直接传入arguments，整体传入arguments所以要用到apply
+        }
+
+        operate.addOperation = opreation.addOperation;
+
+        return operate;
+
+      })();
+
+      operate.addOperation('mod', function (num1, num2) {
+        return num1 % num2;
+      });
+
+      function each(array, fn) {
+        for (var i = 0; i < array.length; i++) {
+          fn(i, array[i]);
+        }
+      }
+
+      function updateSign(symbol) {
+        calcElem.sign.innerHTML = symbol;
+      }
+
+      function outputResult(ret) {
+        calcElem.result.innerHTML = ret;
+      }
+    })();
 
     /* 
      优化
      1、更新符号
      2、功能封住
     */
-
-    //管理代码
-    var opreation = {
-      add: function (num1, num2) {
-        return (Number.parseInt(num1, 10)) + Number.parseInt(num2, 10)
-      },
-
-      subtract: function (num1, num2) {
-        return (Number.parseInt(num1, 10)) - (Number.parseInt(num2, 10));
-      },
-
-      multipy: function (num1, num2) {
-        return (Number.parseInt(num1, 10)) * (Number.parseInt(num2, 10));
-      },
-
-      division: function (num1, num2) {
-        return (Number.parseInt(num1, 10)) / (Number.parseInt(num2, 10));
-      },
-
-      addOperation:function (name,fn) {
-         if(this[name]){
-           throw new Error('方法已经存在');
-         }else{
-           this[name]=fn;
-           return this;
-         }
-      }
-    }
-
-    opreation.addOperation('mod',function (num1,num2) {
-      return num1 % num2;
-    });
-
-
-    function updateSign(symbol) {
-      calcElem.sign.innerHTML = symbol;
-    }
-
-    function outputResult(ret) {
-      calcElem.result.innerHTML = ret;
-    }
   </script>
 
 </body>
