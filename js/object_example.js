@@ -67,7 +67,7 @@ function person(name,age,sex){
 
     //原型模式创建对象
 
-
+/* 
     function test(){
     }
     
@@ -79,6 +79,22 @@ function person(name,age,sex){
     };
     var car = new test();
     car.show();
+ */
+
+
+ //遍历
+ var obj = {
+   name:'xm',
+   age:19,
+   fun:function () {
+     console.log('i\'m here');
+   }
+ };
+
+ for(var i in obj){
+   console.log(obj[i]);
+ }
+
 
 
 
