@@ -83,7 +83,7 @@ function person(name,age,sex){
 
 
  //遍历
- var obj = {
+/*  var obj = {
    name:'xm',
    age:19,
    fun:function () {
@@ -93,7 +93,45 @@ function person(name,age,sex){
 
  for(var i in obj){
    console.log(obj[i]);
- }
+ } */
+
+
+/*  var person = {
+
+ };
+ console.log(person.prototype); */
+
+/* var object = new Object();
+console.log(object.prototype); */
+
+function person() {
+
+}
+
+person.prototype.name = 'zs';
+person.prototype.age = 19;
+person.prototype.fun = function (params) {
+  console.log('say hello');
+};
+
+var person1 = new person();
+var person = new person();
+console.log(person.age);
+console.log(person.name); 
+console.log(person1.age);
+console.log(person1.name);
+
+print(person.prototype);
+print(person._proto_);
+print(person.prototype === person._proto_);
+
+
+function print(value){
+  console.log(value);
+}
+
+var obj = new Object();
+console.log(Object.prototype._proto_);
 
 
 
