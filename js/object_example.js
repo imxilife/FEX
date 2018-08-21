@@ -103,7 +103,7 @@ function person(name,age,sex){
 
 /* var object = new Object();
 console.log(object.prototype); */
-
+/* 
 function person() {
 
 }
@@ -132,6 +132,20 @@ function print(value){
 
 var obj = new Object();
 console.log(Object.prototype._proto_);
+
+
+function fn(){
+  var i = 0;
+  function f1(){
+    return i;
+  }
+  return f1;
+} */
+
+
+var f = 0.1;
+var f1 = 0.2;
+console.log(f+f1==0.3);
 
 
 
