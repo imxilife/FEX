@@ -143,9 +143,11 @@ function fn(){
 } */
 
 
-var f = 0.1;
-var f1 = 0.2;
-console.log(f+f1==0.3);
+var person = function(){};
+var p = new person();
+console.log(p._proto_);
+
+
 
 
 
