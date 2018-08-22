@@ -235,7 +235,7 @@ function print(value) {
 
 //call 和apply 实现继承
 
-function  person(name,age,height) {
+/* function  person(name,age,height) {
   this.name = name;
   this.age = age;
   this.height = height;
@@ -249,7 +249,7 @@ function teacher(name,age,height){
 }
 
 var teacher = new teacher('张山',20,190);
-print(teacher.say());
+print(teacher.say()); */
 
 
 
