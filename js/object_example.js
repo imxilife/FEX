@@ -253,6 +253,22 @@ print(teacher.say()); */
 
 
 
+function a(num1,num2){
+  console.log(this(num1,num2));
+}
+a.say = function (num1,num2) {
+  console.log(this(5,3));
+};
+
+function b(num1,num2){
+  console.log(num1-num2);
+}
+
+a.say.call(b,5,3);
+
+
+
+
 
 
 
