@@ -102,7 +102,7 @@ function fabore(num){
 
 
 
-function factorial(num) {
+/* function factorial(num) {
   if (num == 1) {
     return 1;
   }
@@ -117,14 +117,38 @@ console.log(a);
 
 function add(num1,num2){
   return num1+num2;
-}
+} */
 
 
 //实参比形参少的
-add(1);  //undefined
+//add(1);  //undefined
 
 //实参比形参多的
-add(1,2,3,4,56);  //3
+//add(1,2,3,4,56);  //3
+
+var name = 'john';
+function first(){
+  var a = 'hi';
+  second();
+  var x = a + name;
+  console.log(x);   //hi john
+}
+
+
+function second(){
+   var b = 'hello';
+   thrid();
+   var z = b + name;
+   console.log(z);  //hello john;
+}
+
+function thrid(){
+  var c = 'hey';
+  var z = c + name;
+  console.log(z);  //hey john
+}
+
+first();
 
 
 
