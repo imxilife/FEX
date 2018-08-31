@@ -13,6 +13,65 @@ Note:
   3.2 DataModule--》负责数据的加工和生产
   3.3 ControllModule--》负责把UI和Data关联起来
 
+Tip
+1、模块和自执行函数的关系
+
+2、闭包的强大
+  2.1 闭包可以使得要在全局使用的变量可以放到局部环境中避免全局变量污染
+  2.2 闭包在整个环境中一直存在即是原始的父函数消失了，而且它还持有原始父函数的值且保持不消失。
 
 */
 
+//DataModule
+var budgetController = (function () {
+
+  var incomeTotal, expensesTotal;
+
+  return function () {
+    return {
+      income: function (value) {
+        return this.incomeTotal += value;
+      },
+      expense: function (value) {
+        return this.expensesTotal -= value;
+      }
+    };
+  };
+})();
+
+//UIModule
+var uiController = (function () {
+  return {
+    getInput: function () {
+      return {
+        add_type: document.querySelector('.add__type').value,
+        descript: document.querySelector('.add__description').value,
+        value: document.querySelector('.add__value').value
+      };
+    }
+  };
+})();
+
+//ControllModule
+var appController = (function (budgetCtrl, uiCtrl) {
+
+  var ui_ctrl = uiCtrl;
+  var budget_ctrl = budgetCtrl;
+  document.querySelector('.add__btn').addEventListener('click', execCtrl);
+
+  function execCtrl() {
+    //1 get input value
+    console.log(ui_ctrl());
+    //2 add item to data struct
+    //3 update income or expenses ui
+    //4 calc budget result
+    //5 update budget ui  
+    /* console.log(uiCtrl.descript); */ //uictrl 这里返回的是uiController自执行函数返回的内部函数对象
+  }
+
+  document.addEventListener('keypress', function (event) {
+    if (event.keyCode == 13) {
+      execCtrl();
+    }
+  });
+})(budgetController, uiController);
