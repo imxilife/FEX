@@ -8,7 +8,7 @@ Note:
 1、解耦是为了程序更通用，想象一下 如果数据和UI绑定了，如果你的界面变化了，数据的结构也要变化。所以要解耦UI和数据，他们对于双方都是不可感知的
 各自只负责各自的事。
 2、封装是为了将私有数据和公共数据区分开，内部细节私有化，对外提供能力。
-3、通过架构模块的方式来构建程序
+3、通过架构模块的方式来构建程序  (这里所指的模块一般是通过匿名函数来达到的，然后在内部通过构建对象的方式来封装功能模块以及通过闭包的方式来构建私有变量外面访问)
   3.1 UIModule --》负责界面的UI更新和数据获取
   3.2 DataModule--》负责数据的加工和生产
   3.3 ControllModule--》负责把UI和Data关联起来
@@ -25,31 +25,109 @@ Tip
 //DataModule
 var budgetController = (function () {
 
-  var incomeTotal, expensesTotal;
+  //1 create item construct
+  function incomeItem(id, desc, value) {
+    this.id = id;
+    this.desc = desc;
+    this.value = value;
+  }
 
-  return function () {
-    return {
-      income: function (value) {
-        return this.incomeTotal += value;
-      },
-      expense: function (value) {
-        return this.expensesTotal -= value;
-      }
-    };
+  function expenses(id, desc, value) {
+    this.id = id;
+    this.desc = desc;
+    this.value = value;
+  }
+
+  //save item date construct
+  var date = {
+    allItems: {
+      inc: [], //every item date
+      exp: []
+    },
+    allTotal: {
+      incTotal: 0, //all item data sum
+      expTotal: 0
+    }
   };
+
+  //add item
+  return {
+    add: function (type, desc, value) {
+      var item, id;
+      if (date.allItems[type].length > 0) {
+        id = date.allItems[type][date.allItems[type].length - 1].id + 1;
+      } else {
+        id = 0;
+      }
+
+      if (type === 'inc') {
+        item = new incomeItem(id, desc, value);
+      } else if (type === 'exp') {
+        item = new expenses(id, desc, value);
+      }
+      date.allItems[type].push(item);
+      return item;
+    },
+    delete: function (type, index) {
+      if (type === 'exp') {
+        data.allItem[type].remove();
+      }
+    }
+  };
+
+
+
 })();
 
 //UIModule
 var uiController = (function () {
+
+  var domNameStr = {
+    type: '.add__type',
+    desc: '.add__description',
+    value: '.add__value',
+    btn: '.add__btn',
+    incomeItemList: '.income__list',
+    expensesList: '.expenses__list'
+  };
+
   return {
     getInput: function () {
       return {
-        add_type: document.querySelector('.add__type').value,
-        descript: document.querySelector('.add__description').value,
-        value: document.querySelector('.add__value').value
+        type: document.querySelector(domNameStr.type).value,
+        descript: document.querySelector(domNameStr.desc).value,
+        value: document.querySelector(domNameStr.value).value
       };
+    },
+    getDomNameString: function () {
+      return domNameStr;
+    },
+    updateItem: function (type,item) {
+        var html,listType;
+      //create html with plachehold instead;
+      console.log(type);
+
+      if (type === 'inc') {
+        listType = domNameStr.incomeItemList;
+        html = '<div class="item clearfix" id="%id%"> <div class="item__description">%desc%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+      } else if (type === 'exp') {
+        listType = domNameStr.expensesList;
+        html = '<div class="item clearfix" id="%id%"> < div class="item__description">%desc%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+      }
+
+      console.log(html);
+
+      //replace placehold with actual value
+      var newHtmlText = html.replace('%id%',item.id);
+      newHtmlText = newHtmlText.replace('%desc%', item.desc);
+      newHtmlText = newHtmlText.replace('%value%',item.value);
+      
+      //insert html 
+      document.querySelector(listType).insertAdjacentHTML('beforeend',newHtmlText);
     }
   };
+
+
 })();
 
 //ControllModule
@@ -57,21 +135,31 @@ var appController = (function (budgetCtrl, uiCtrl) {
 
   var ui_ctrl = uiCtrl;
   var budget_ctrl = budgetCtrl;
-  document.querySelector('.add__btn').addEventListener('click', execCtrl);
 
-  function execCtrl() {
+  document.querySelector(ui_ctrl.getDomNameString().btn).addEventListener('click', addCtrl);
+
+  function addCtrl() {
+
     //1 get input value
-    console.log(ui_ctrl());
+    var input = ui_ctrl.getInput();
+    //console.log('type:'+input.type+"|"+"desc:"+input.descript+"|"+"value:"+input.value);
+
     //2 add item to data struct
+    var newItem = budget_ctrl.add(input.type, input.descript, input.value);
+    console.log("id:" + newItem.id + "|" + "desc:" + newItem.desc + "|" + "value:" + newItem.value);
+
     //3 update income or expenses ui
+      ui_ctrl.updateItem(input.type,newItem);
+
     //4 calc budget result
+
     //5 update budget ui  
-    /* console.log(uiCtrl.descript); */ //uictrl 这里返回的是uiController自执行函数返回的内部函数对象
+
   }
 
   document.addEventListener('keypress', function (event) {
     if (event.keyCode == 13) {
-      execCtrl();
+      addCtrl();
     }
   });
 })(budgetController, uiController);
