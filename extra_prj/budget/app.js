@@ -14,7 +14,10 @@ Note:
   3.3 ControllModule--》负责把UI和Data关联起来
 
 Tip
-1、模块和自执行函数的关系
+1、模块模式(Module patten)和自执行函数以及闭包之间的关系
+  1.1、JavaScript模块是指封装代码达到形参一个功能块的目的
+  1.2、不管是自执行函数还是普通函数等都可以封装模块，只不过自执行函数不用主动去调用，对于一加载就主动执行，自执行函数的优势。
+  1.3、闭包概念是函数和声明该函数的词法环境的组合，这里提到的是函数，同时也包括方法。
 
 2、闭包的强大
   2.1 闭包可以使得要在全局使用的变量可以放到局部环境中避免全局变量污染
@@ -47,7 +50,7 @@ var budgetController = (function () {
     allTotal: {
       incTotal: 0, //all item data sum
       expTotal: 0,
-      spareMoney:0
+      spareMoney: 0
     }
   };
 
@@ -63,12 +66,12 @@ var budgetController = (function () {
 
       if (type === 'inc') {
         item = new incomeItem(id, desc, value);
-        date.allTotal.incTotal += Number.parseInt(value,10);
+        date.allTotal.incTotal += Number.parseInt(value, 10);
       } else if (type === 'exp') {
         date.allTotal.expTotal -= Number.parseInt(value, 10);
         item = new expenses(id, desc, value);
       }
-      
+
       date.allItems[type].push(item);
       return item;
     },
@@ -79,16 +82,13 @@ var budgetController = (function () {
       }
     },
 
-    getBudgetValue:function () {
-       
-       var inc = date.allTotal.incTotal;
-       var exp = date.allTotal.expTotal;
-       return [inc,exp,inc+exp,Math.floor(exp/inc*100)];
+    getBudgetValue: function () {
+
+      var inc = date.allTotal.incTotal;
+      var exp = date.allTotal.expTotal;
+      return [inc, exp, inc + exp, Math.floor(exp / inc * 100)];
     }
   };
-
-
-
 })();
 
 //UIModule
@@ -118,8 +118,8 @@ var uiController = (function () {
     getDomNameString: function () {
       return domNameStr;
     },
-    updateItem: function (type,item) {
-        var html,listType;
+    updateItem: function (type, item) {
+      var html, listType;
       //create html with plachehold instead;
       console.log(type);
 
@@ -132,24 +132,22 @@ var uiController = (function () {
       }
       console.log(html);
       //replace placehold with actual value
-      var newHtmlText = html.replace('%id%',item.id);
+      var newHtmlText = html.replace('%id%', item.id);
       newHtmlText = newHtmlText.replace('%desc%', item.desc);
-      newHtmlText = newHtmlText.replace('%value%',item.value);
+      newHtmlText = newHtmlText.replace('%value%', item.value);
       //insert html 
-      document.querySelector(listType).insertAdjacentHTML('beforeend',newHtmlText);
+      document.querySelector(listType).insertAdjacentHTML('beforeend', newHtmlText);
     },
 
-     updateBudget:function (incVlaue,expValue,spareMoney,precent) {
+    updateBudget: function (incVlaue, expValue, spareMoney, precent) {
       //更新预算
       document.querySelector(domNameStr.budget_income_text).textContent = incVlaue;
       document.querySelector(domNameStr.budget_exp_text).textContent = expValue;
       document.querySelector(domNameStr.budget_spare_money_text).textContent = spareMoney;
-       document.querySelector(domNameStr.budget_exp_percent).textContent = precent+'%';
-    } 
+      document.querySelector(domNameStr.budget_exp_percent).textContent = precent + '%';
+    }
 
   };
-
-
 })();
 
 //ControllModule
@@ -158,7 +156,15 @@ var appController = (function (budgetCtrl, uiCtrl) {
   var ui_ctrl = uiCtrl;
   var budget_ctrl = budgetCtrl;
 
-  document.querySelector(ui_ctrl.getDomNameString().btn).addEventListener('click', addCtrl);
+    function setEventListener() {
+      document.addEventListener('keypress', function (event) {
+        if (event.keyCode == 13) {
+          addCtrl();
+        }
+      });
+
+      document.querySelector(ui_ctrl.getDomNameString().btn).addEventListener('click', addCtrl);
+    }
 
   function addCtrl() {
 
@@ -171,18 +177,19 @@ var appController = (function (budgetCtrl, uiCtrl) {
     console.log("id:" + newItem.id + "|" + "desc:" + newItem.desc + "|" + "value:" + newItem.value);
 
     //3 update income or expenses ui
-      ui_ctrl.updateItem(input.type,newItem);
+    ui_ctrl.updateItem(input.type, newItem);
 
     //4 calc budget result
-      var budgetValue = budget_ctrl.getBudgetValue();
+    var budgetValue = budget_ctrl.getBudgetValue();
 
     //5 update budget ui  
-     ui_ctrl.updateBudget(budgetValue[0], budgetValue[1], budgetValue[2],budgetValue[3]);
+    ui_ctrl.updateBudget(budgetValue[0], budgetValue[1], budgetValue[2], budgetValue[3]);
   }
 
-  document.addEventListener('keypress', function (event) {
-    if (event.keyCode == 13) {
-      addCtrl();
-    }
-  });
+  return {
+    init:setEventListener
+  };
+
 })(budgetController, uiController);
+
+appController.init();
