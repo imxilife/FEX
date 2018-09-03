@@ -26,170 +26,224 @@ Tip
 */
 
 //DataModule
+
+
 var budgetController = (function () {
 
-  //1 create item construct
-  function incomeItem(id, desc, value) {
-    this.id = id;
-    this.desc = desc;
-    this.value = value;
-  }
+        //1 create item construct
+        function incomeItem(id, desc, value) {
+        this.id = id;
+        this.desc = desc;
+        this.value = value;
+        }
 
-  function expenses(id, desc, value) {
-    this.id = id;
-    this.desc = desc;
-    this.value = value;
-  }
+
+        function expenses(id, desc, value) {
+        this.id = id;
+        this.desc = desc;
+        this.value = value;
+        }
 
   //save item date construct
-  var date = {
-    allItems: {
-      inc: [], //every item date
-      exp: []
-    },
-    allTotal: {
-      incTotal: 0, //all item data sum
-      expTotal: 0,
-      spareMoney: 0
-    }
-  };
+        var date = {
+        allItems: {
+            inc: [], //every item date
+            exp: []
+        },
+        allTotal: {
+            incTotal: 0, //all item data sum
+            expTotal: 0,
+        },
+        budget:0,
+        percentage:-1
+        };
+
+        function calculateTotal(type){
+                //计算exp和inc
+        var sum = 0;
+        date.allItems[type].foreach(function (value,index,array) {
+            sum += value;
+        });
+        date.allTotal[type]  = sum;
+        }
 
   //add item
-  return {
-    add: function (type, desc, value) {
-      var item, id;
-      if (date.allItems[type].length > 0) {
-        id = date.allItems[type][date.allItems[type].length - 1].id + 1;
-      } else {
-        id = 0;
-      }
+        return {
+        add: function (type, desc, value) {
+        var item, id;
+        if (date.allItems[type].length > 0) {
+                id = date.allItems[type][date.allItems[type].length - 1].id + 1;
+        } else {
+                id = 0;
+        }
 
-      if (type === 'inc') {
-        item = new incomeItem(id, desc, value);
-        date.allTotal.incTotal += Number.parseInt(value, 10);
-      } else if (type === 'exp') {
-        date.allTotal.expTotal -= Number.parseInt(value, 10);
-        item = new expenses(id, desc, value);
-      }
+        if (type === 'inc') {
+                item = new incomeItem(id, desc, value);
+                date.allTotal.incTotal += Number.parseInt(value, 10);
+        } else if (type === 'exp') {
+                date.allTotal.expTotal -= Number.parseInt(value, 10);
+                item = new expenses(id, desc, value);
+        }
 
-      date.allItems[type].push(item);
-      return item;
-    },
+        date.allItems[type].push(item);
+        return item;
+        },
 
-    delete: function (type, index) {
-      if (type === 'exp') {
-        data.allItem[type].remove();
-      }
-    },
+        delete: function (type, index) {
+        if (type === 'exp') {
+                        date.allItem[type].remove();
+                }
+        },
 
-    getBudgetValue: function () {
+        calculateBudget: function () {
+            //calc incom and exprenses budget
+            calculateTotal('inc');
+            calculateTotal('exp');
 
-      var inc = date.allTotal.incTotal;
-      var exp = date.allTotal.expTotal;
-      return [inc, exp, inc + exp, Math.floor(exp / inc * 100)];
-    }
-  };
+            //calc budget
+            date.budget = date.allTotal.incTotal -  date.allTotal.expTotal;
+
+            //calc precent
+            if(date.allTotal.inc > 0){
+                date.percentage = Math.round((date.allTotal.expTotal / date.allTotal.incTotal) * 100);
+            }else{
+                date.percentage = -1;
+            }
+        },
+        getBudget:function () {
+            return {
+                budget:date.budget,
+                totalInc:date.allTotal.incTotal,
+                totalexp:date.allTotal.expTotal,
+                percentage:date.percentage
+            };
+        }
+    };
 })();
 
 //UIModule
-var uiController = (function () {
+ var uiController = (function () {
 
-  var domNameStr = {
-    type: '.add__type',
-    desc: '.add__description',
-    value: '.add__value',
-    btn: '.add__btn',
-    incomeItemList: '.income__list',
-    expensesList: '.expenses__list',
-    budget_income_text: '.budget__income--value',
-    budget_exp_text: '.budget__expenses--value',
-    budget_exp_percent: '.budget__expenses--percentage',
-    budget_spare_money_text: '.budget__value'
-  };
+        var domNameStr = {
+        type: '.add__type',
+        desc: '.add__description',
+        value: '.add__value',
+        btn: '.add__btn',
+        incomeItemList: '.income__list',
+        expensesList: '.expenses__list',
+        budget_income_text: '.budget__income--value',
+        budget_exp_text: '.budget__expenses--value',
+        budget_exp_percent: '.budget__expenses--percentage',
+        budget: '.budget__value'
+     };
 
-  return {
-    getInput: function () {
-      return {
-        type: document.querySelector(domNameStr.type).value,
-        descript: document.querySelector(domNameStr.desc).value,
-        value: document.querySelector(domNameStr.value).value
-      };
+        return {
+        getInput: function () {
+        return {
+                type: document.querySelector(domNameStr.type).value,
+                descript: document.querySelector(domNameStr.desc).value,
+                value: document.querySelector(domNameStr.value).value
+        };
     },
-    getDomNameString: function () {
-      return domNameStr;
+        getDomNameString: function () {
+        return domNameStr;
     },
-    updateItem: function (type, item) {
-      var html, listType;
-      //create html with plachehold instead;
-      console.log(type);
+        updateItem: function (type, item) {
+        var html, listType;
+        //create html with plachehold instead;
+        console.log(type);
 
-      if (type === 'inc') {
-        listType = domNameStr.incomeItemList;
-        html = '<div class="item clearfix" id="%id%"> <div class="item__description">%desc%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
-      } else if (type === 'exp') {
-        listType = domNameStr.expensesList;
-        html = '<div class="item clearfix" id=%id%><div class="item__description">%desc%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
-      }
-      console.log(html);
-      //replace placehold with actual value
-      var newHtmlText = html.replace('%id%', item.id);
-      newHtmlText = newHtmlText.replace('%desc%', item.desc);
-      newHtmlText = newHtmlText.replace('%value%', item.value);
-      //insert html 
-      document.querySelector(listType).insertAdjacentHTML('beforeend', newHtmlText);
+        if (type === 'inc') {
+            listType = domNameStr.incomeItemList;
+            html = '<div class="item clearfix" id="%id%"> <div class="item__description">%desc%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        } else if (type === 'exp') {
+            listType = domNameStr.expensesList;
+            html = '<div class="item clearfix" id=%id%><div class="item__description">%desc%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        }
+        console.log(html);
+        //replace placehold with actual value
+        var newHtmlText = html.replace('%id%', item.id);
+        newHtmlText = newHtmlText.replace('%desc%', item.desc);
+        newHtmlText = newHtmlText.replace('%value%', item.value);
+        //insert html 
+        document.querySelector(listType).insertAdjacentHTML('beforeend', newHtmlText);
     },
 
-    updateBudget: function (incVlaue, expValue, spareMoney, precent) {
-      //更新预算
-      document.querySelector(domNameStr.budget_income_text).textContent = incVlaue;
-      document.querySelector(domNameStr.budget_exp_text).textContent = expValue;
-      document.querySelector(domNameStr.budget_spare_money_text).textContent = spareMoney;
-      document.querySelector(domNameStr.budget_exp_percent).textContent = precent + '%';
+        updateBudget: function (budget) {
+        //更新预算
+        document.querySelector(domNameStr.budget_income_text).textContent = budget.totalInc;
+        document.querySelector(domNameStr.budget_exp_text).textContent = budget.expTotal;
+        document.querySelector(domNameStr.budget).textContent = budget.budget;
+        if(budget.percentage > 0 ){
+            document.querySelector(domNameStr.budget_exp_percent).textContent = budget.percentage + '%';
+        }else{
+            document.querySelector(domNameStr.budget_exp_percent).textContent = '---';
+        }
     }
 
-  };
+    };
 })();
 
-//ControllModule
+        //ControllModule
 var appController = (function (budgetCtrl, uiCtrl) {
 
-  var ui_ctrl = uiCtrl;
-  var budget_ctrl = budgetCtrl;
+        var ui_ctrl = uiCtrl;
+        var budget_ctrl = budgetCtrl;
 
-    function setEventListener() {
-      document.addEventListener('keypress', function (event) {
-        if (event.keyCode == 13) {
-          addCtrl();
+        function setEventListener() {
+        document.addEventListener('keypress', function (event) {
+                if (event.keyCode == 13) {
+                addCtrl();
+                }
+        });
+
+        document.querySelector(ui_ctrl.getDomNameString().btn).addEventListener('click', addCtrl);
         }
-      });
 
-      document.querySelector(ui_ctrl.getDomNameString().btn).addEventListener('click', addCtrl);
+        function updateBudget() {
+            //calculate budget
+            budget_ctrl.calculateBudget();
+
+            //getbudget
+            var budget = budget_ctrl.getBudget();
+
+            //show budget
+            ui_ctrl.displayBudget(budget);
+        }
+
+        function addCtrl() {
+
+        //1 get input field's value
+        var input = ui_ctrl.getInput();
+        //console.log('type:'+input.type+"|"+"desc:"+input.descript+"|"+"value:"+input.value);
+
+        //2add item to the budget controller
+        var newItem = budget_ctrl.add(input.type, input.descript, input.value);
+        console.log("id:" + newItem.id + "|" + "desc:" + newItem.desc + "|" + "value:" + newItem.value);
+
+        //3 add the item to the UI
+        ui_ctrl.updateItem(input.type, newItem);
+
+        //4 calculate budget and update ui
+        updateBudget();
+
+        //5 calculate and update percentage
+        updatePercentages();
     }
 
-  function addCtrl() {
+        return {
+            init : function () {
+            ui_ctrl.displayMonth();
+            ui_ctrl.displayBudget({
+                budget:0,
+                totalnc:0,
+                totalexp:0,
+                percentage:-1
+            });
+              setEventListener();
+             }
+        };
 
-    //1 get input value
-    var input = ui_ctrl.getInput();
-    //console.log('type:'+input.type+"|"+"desc:"+input.descript+"|"+"value:"+input.value);
+        })(budgetController, uiController);
 
-    //2 add item to data struct
-    var newItem = budget_ctrl.add(input.type, input.descript, input.value);
-    console.log("id:" + newItem.id + "|" + "desc:" + newItem.desc + "|" + "value:" + newItem.value);
-
-    //3 update income or expenses ui
-    ui_ctrl.updateItem(input.type, newItem);
-
-    //4 calc budget result
-    var budgetValue = budget_ctrl.getBudgetValue();
-
-    //5 update budget ui  
-    ui_ctrl.updateBudget(budgetValue[0], budgetValue[1], budgetValue[2], budgetValue[3]);
-  }
-
-  return {
-    init:setEventListener
-  };
-
-})(budgetController, uiController);
-
-appController.init();
+        appController.init();
