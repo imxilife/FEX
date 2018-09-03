@@ -61,10 +61,10 @@ var budgetController = (function () {
         function calculateTotal(type){
                 //计算exp和inc
         var sum = 0;
-        date.allItems[type].foreach(function (value,index,array) {
-            sum += value;
+        date.allItems[type].forEach(function (item,index,array) {
+            sum += item.value;
         });
-        date.allTotal[type]  = sum;
+        date.allTotal[type+"Total"]  = sum;
         }
 
   //add item
@@ -72,17 +72,15 @@ var budgetController = (function () {
         add: function (type, desc, value) {
         var item, id;
         if (date.allItems[type].length > 0) {
-                id = date.allItems[type][date.allItems[type].length - 1].id + 1;
+            id = date.allItems[type][date.allItems[type].length - 1].id + 1;
         } else {
-                id = 0;
+            id = 0;
         }
 
         if (type === 'inc') {
-                item = new incomeItem(id, desc, value);
-                date.allTotal.incTotal += Number.parseInt(value, 10);
+            item = new incomeItem(id, desc, value);
         } else if (type === 'exp') {
-                date.allTotal.expTotal -= Number.parseInt(value, 10);
-                item = new expenses(id, desc, value);
+            item = new expenses(id, desc, value);
         }
 
         date.allItems[type].push(item);
@@ -91,20 +89,18 @@ var budgetController = (function () {
 
         delete: function (type, index) {
         if (type === 'exp') {
-                        date.allItem[type].remove();
-                }
+            date.allItem[type].remove();
+          }
         },
 
         calculateBudget: function () {
             //calc incom and exprenses budget
             calculateTotal('inc');
             calculateTotal('exp');
-
             //calc budget
             date.budget = date.allTotal.incTotal -  date.allTotal.expTotal;
-
             //calc precent
-            if(date.allTotal.inc > 0){
+            if(date.allTotal.incTotal > 0){
                 date.percentage = Math.round((date.allTotal.expTotal / date.allTotal.incTotal) * 100);
             }else{
                 date.percentage = -1;
@@ -142,16 +138,15 @@ var budgetController = (function () {
         return {
                 type: document.querySelector(domNameStr.type).value,
                 descript: document.querySelector(domNameStr.desc).value,
-                value: document.querySelector(domNameStr.value).value
+                value: Number.parseFloat(document.querySelector(domNameStr.value).value)
         };
     },
         getDomNameString: function () {
         return domNameStr;
     },
-        updateItem: function (type, item) {
+        addListItem: function (type, item) {
         var html, listType;
         //create html with plachehold instead;
-        console.log(type);
 
         if (type === 'inc') {
             listType = domNameStr.incomeItemList;
@@ -169,18 +164,28 @@ var budgetController = (function () {
         document.querySelector(listType).insertAdjacentHTML('beforeend', newHtmlText);
     },
 
-        updateBudget: function (budget) {
+        displayBudget: function (budget) {
         //更新预算
         document.querySelector(domNameStr.budget_income_text).textContent = budget.totalInc;
-        document.querySelector(domNameStr.budget_exp_text).textContent = budget.expTotal;
+        document.querySelector(domNameStr.budget_exp_text).textContent = budget.totalexp;
         document.querySelector(domNameStr.budget).textContent = budget.budget;
         if(budget.percentage > 0 ){
             document.querySelector(domNameStr.budget_exp_percent).textContent = budget.percentage + '%';
         }else{
             document.querySelector(domNameStr.budget_exp_percent).textContent = '---';
         }
-    }
+    },
+      clearInputField:function () {
+        var fields,fieldsArr;
+          fields = document.querySelectorAll(domNameStr.desc + ',' + domNameStr.value);
+          console.log(fields);
+          fieldsArr = Array.prototype.slice.call(fields);
+          fieldsArr.forEach(function (element,index,array) {
+            element.value = '';
+          });
 
+        fieldsArr[0].focus();
+      }
     };
 })();
 
@@ -191,13 +196,12 @@ var appController = (function (budgetCtrl, uiCtrl) {
         var budget_ctrl = budgetCtrl;
 
         function setEventListener() {
-        document.addEventListener('keypress', function (event) {
+          document.addEventListener('keypress', function (event) {
                 if (event.keyCode == 13) {
                 addCtrl();
                 }
         });
-
-        document.querySelector(ui_ctrl.getDomNameString().btn).addEventListener('click', addCtrl);
+          document.querySelector(ui_ctrl.getDomNameString().btn).addEventListener('click', addCtrl);
         }
 
         function updateBudget() {
@@ -215,6 +219,11 @@ var appController = (function (budgetCtrl, uiCtrl) {
 
         //1 get input field's value
         var input = ui_ctrl.getInput();
+        if(input.descript==='' || Number.isNaN(input.value) || input.value === 0){
+          alert('请输入正确信息');
+          ui_ctrl.clearInputField();
+          return;
+        }
         //console.log('type:'+input.type+"|"+"desc:"+input.descript+"|"+"value:"+input.value);
 
         //2add item to the budget controller
@@ -222,21 +231,25 @@ var appController = (function (budgetCtrl, uiCtrl) {
         console.log("id:" + newItem.id + "|" + "desc:" + newItem.desc + "|" + "value:" + newItem.value);
 
         //3 add the item to the UI
-        ui_ctrl.updateItem(input.type, newItem);
+        ui_ctrl.addListItem(input.type, newItem);
 
-        //4 calculate budget and update ui
+        //4 clear input Fields
+        ui_ctrl.clearInputField();
+
+        //5 calculate budget and update ui
         updateBudget();
 
-        //5 calculate and update percentage
-        updatePercentages();
+        //6 calculate and update percentage
+        //updatePercentages();
+
     }
 
         return {
             init : function () {
-            ui_ctrl.displayMonth();
+            /* ui_ctrl.displayMonth(); */
             ui_ctrl.displayBudget({
                 budget:0,
-                totalnc:0,
+                totalInc:0,
                 totalexp:0,
                 percentage:-1
             });
@@ -246,4 +259,5 @@ var appController = (function (budgetCtrl, uiCtrl) {
 
         })(budgetController, uiController);
 
-        appController.init();
+  //初始化函数      
+　appController.init();
