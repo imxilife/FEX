@@ -74,89 +74,89 @@ Tip
 var budgetController = (function () {
 
         //1 create item construct
-        function incomeItem(id, desc, value) {
+    function incomeItem(id, desc, value) {
         this.id = id;
         this.desc = desc;
         this.value = value;
-        }
+    }
 
 
-        function expenses(id, desc, value) {
+    function expenses(id, desc, value) {
         this.id = id;
         this.desc = desc;
         this.value = value;
-        }
+    }
 
   //save item date construct
-        var date = {
+    var date = {
         allItems: {
             inc: [], //every item date
             exp: []
-        },
+    },
         allTotal: {
             incTotal: 0, //all item data sum
             expTotal: 0,
-        },
+    },
         budget:0,
         percentage:-1
-        };
+    };
 
-        function calculateTotal(type){
+    function calculateTotal(type){
                 //计算exp和inc
         var sum = 0;
         date.allItems[type].forEach(function (item,index,array) {
             sum += item.value;
         });
         date.allTotal[type+"Total"]  = sum;
-        }
+    }
 
   //add item
-        return {
+    return {
         add: function (type, desc, value) {
         var item, id;
         if (date.allItems[type].length > 0) {
             id = date.allItems[type][date.allItems[type].length - 1].id + 1;
         } else {
             id = 0;
-        }
+    }
 
-        if (type === 'inc') {
+    if (type === 'inc') {
             item = new incomeItem(id, desc, value);
-        } else if (type === 'exp') {
+    } else if (type === 'exp') {
             item = new expenses(id, desc, value);
-        }
+    }
 
-        date.allItems[type].push(item);
-        return item;
-        },
+    date.allItems[type].push(item);
+    return item;
+    },
 
-        delete: function (type, index) {
+    delete: function (type, index) {
         if (type === 'exp') {
             date.allItem[type].remove();
-          }
-        },
-
-        calculateBudget: function () {
-            //calc incom and exprenses budget
-            calculateTotal('inc');
-            calculateTotal('exp');
-            //calc budget
-            date.budget = date.allTotal.incTotal -  date.allTotal.expTotal;
-            //calc precent
-            if(date.allTotal.incTotal > 0){
-                date.percentage = Math.round((date.allTotal.expTotal / date.allTotal.incTotal) * 100);
-            }else{
-                date.percentage = -1;
-            }
-        },
-        getBudget:function () {
-            return {
-                budget:date.budget,
-                totalInc:date.allTotal.incTotal,
-                totalexp:date.allTotal.expTotal,
-                percentage:date.percentage
-            };
         }
+    },
+
+    calculateBudget: function () {
+            //calc incom and exprenses budget
+        calculateTotal('inc');
+        calculateTotal('exp');
+            //calc budget
+        date.budget = date.allTotal.incTotal -  date.allTotal.expTotal;
+            //calc precent
+        if(date.allTotal.incTotal > 0){
+            date.percentage = Math.round((date.allTotal.expTotal / date.allTotal.incTotal) * 100);
+        }else{
+            date.percentage = -1;
+        }
+    },
+    getBudget:function () {
+        return {
+            budget:date.budget,
+            totalInc:date.allTotal.incTotal,
+            totalexp:date.allTotal.expTotal,
+            percentage:date.percentage
+        };
+    }
     };
 })();
 

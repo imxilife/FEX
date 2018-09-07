@@ -29,3 +29,4 @@ const array6 = [12,34,56];
 for (const arry of array6) {
     console.log(arry);
 }
+
