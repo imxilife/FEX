@@ -81,10 +81,18 @@ function error(err) {
 
 4、任务是可以无限级联的，比如有一个多步执行操作，每一步都依赖上一步的结果，那么就可以这样 then().then().then()，
    连续的then方法下去，直到所有步骤都执行完成。(每一步的then都会返回一个新得promise的对象，这是得以级联的关键)
-   
+
 5、最后任务的执行异常是可以捕获的，什么意思呢，就是说你可以在创建Promise对象后然后.catch()方法，获取任务执行过程中的异常。      
 
 */
+
+/* 
+
+问题:
+1、为什么promise后面可以接着跟.catch()方法
+2、then()返回的数据后面为什么能在下一个then中返回呢 then返回的到底是什么?
+*/
+
 function test(resolve,reject){
   let total = 100;
   let sum = 0;
@@ -103,12 +111,14 @@ function test(resolve,reject){
 let p = new Promise(test);  //step1 对象创建完成后会自动执行test()方法，这里传入了resolve和reject是用来回调任务执行成功和错误的结果
 p.then(function(params) { //step2 任务执行完成后 会通过then方法，传入的两个回调函数来接收任务执行的结果。
   console.log(params);
-},function(params) {
+}/* ,function(params) {
   console.log('fuck the world');
+} */).catch(function (params) {
+  console.log('error');
 });
-
+/* 
 p.catch(function () { //如果任务执行过程中出现错误，通过catch来捕获。
   console.log('aaaa');
-});
+}); */
 
 
