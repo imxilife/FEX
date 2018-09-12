@@ -1,0 +1,6 @@
+view{
+  width: 100%;
+  text-align: center;
+  color: #ff00ff;
+  font-size: 64rpx
+}
