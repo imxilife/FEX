@@ -1,0 +1,70 @@
+
+
+.container-parent{
+    width: 500rpx;
+    height: 500rpx;
+    background-color: coral
+}
+
+.container{
+    width: 300rpx;
+    height: 300rpx;
+    background-color: gold
+}
+
+.hover-container{
+    background-color: red;
+}
+
+/* .red{
+    width: 20%;
+    height: 64rpx;
+    background-color: red;
+}
+
+.green{
+    width: 40%;
+    height: 64rpx;
+    background-color: green;
+}
+
+.blue{
+    width: 60%;
+    height: 64rpx;
+    background-color: blue;
+} */
+
+.a{
+    margin-top: 100rpx;
+}
+
+
+.scroll_view_direction_text{
+    text-align: center;
+    font-size: 48rpx;
+}
+
+.scroll_view{
+    margin: 0 auto;
+    height: 400rpx;
+    background-color: greenyellow
+}
+
+.scroll-view-item{
+    height: 400rpx;
+}
+
+#red{
+    background-color: red;
+}
+#green{
+    background-color: green;
+}
+
+#blue{
+    background-color: blue;
+}
+
+#yellow{
+    background-color: yellow;
+}

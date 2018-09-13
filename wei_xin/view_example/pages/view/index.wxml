@@ -1,0 +1,25 @@
+<view class="section">
+    <view>view组件</view>
+    <view class="container-parent" hover-stop-propagation="{{false}}">
+        <view class="container" hover-class="hover-container" hover-start-time="50" hover-stay-time="200"></view>
+    </view>
+</view>
+<view class="a" hover-class="none" hover-stop-propagation="false">scroll_view组件</view>
+<view class="scroll_view_direction_text" hover-class="none" hover-stop-propagation="false">
+    竖向滚动
+</view>
+<scroll-view class="scroll_view" scroll-y="true" scroll-into-view="{{toview}}" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+    <view id="red" class="scroll-view-item bc_red" hover-class="none"></view>
+    <view id= "green" class="scroll-view-item bc_green" hover-class="none"></view>
+    <view id = "blue" class="scroll-view-item bc_blue" hover-class="none"></view>
+    <view id = "yellow" class="scroll-view-item bc_yellow" hover-class="none"></view>
+</scroll-view>
+
+  <view class="btn-area">
+    <button size="mini" bindtap="tap">click me to scroll into view </button>
+    <button size="mini" bindtap="tapMove">click me to scroll</button>
+  </view>
+
+<!-- <view class="red"></view>
+<view class="green"></view>
+<view class="blue"></view> -->
