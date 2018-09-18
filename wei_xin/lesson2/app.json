@@ -1,0 +1,21 @@
+
+{
+    "pages":[
+        "pages/helloworld/helloworld"
+    ],
+    "window":{
+        "navigationBarTitleText": "WeChat",
+        "navigationBarTextStyle": "black",
+        "navigationBarBackgroundColor": "#0xff00ff",
+        "backgroundTextStyle": "light"
+    },
+    "networkTimeout":{
+        "request":1000,
+        "downloadFile":10000
+    },
+    "debug":true,
+
+    "tabBar":{
+    }
+}
+
