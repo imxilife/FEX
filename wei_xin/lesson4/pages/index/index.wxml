@@ -1,0 +1,6 @@
+<view class="section" hover-class="none" hover-stop-propagation="false">
+  <view class="section_title"></view>
+  <view class="flex_wrap" hover-class="none" hover-stop-propagation="false" style="flex_direction:row">
+    <view class="flex_item bc_green"></view>
+  </view>
+</view>
