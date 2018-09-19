@@ -5,18 +5,16 @@ body {
 
 .wrap {
     width: 100%;
-    height: 1334rpx;
-    background-color: green;
-    position: relative
+    height: 932rpx;
+    background-color: #3cd284;
+    position: relative;
+    padding-top: 200rpx;
 }
 
 .container{
     width: 670rpx;
     height: 670rpx;
+    margin-left: 40rpx;
+    margin-right: 40rpx;
     background-color: gold;
-    position: absolute;
-    margin-left: -335rpx;
-    margin-top: -335rpx;
-    left: 50%;
-    top: 50%
 }
