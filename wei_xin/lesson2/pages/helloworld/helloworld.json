@@ -1,0 +1,11 @@
+
+{
+    "navigationBarTitleText": "Weichat",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#ff00ff",
+    "backgroundTextStyle": "light",
+    "navigationStyle": "default",
+    "backgroundColor" : "#ffff00",
+    "backgroundTextStyle": "white",
+    "enablePullDownRefresh" : true
+}

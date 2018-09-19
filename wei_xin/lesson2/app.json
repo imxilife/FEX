@@ -1,21 +1,52 @@
-
 {
-    "pages":[
+    "pages": [
+        "pages/ride/ride",
+         "pages/trip/trip",
+         "pages/my/my",
         "pages/helloworld/helloworld"
     ],
-    "window":{
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black",
-        "navigationBarBackgroundColor": "#0xff00ff",
-        "backgroundTextStyle": "light"
+    "networkTimeout": {
+        "request": 1000,
+        "downloadFile": 10000
     },
-    "networkTimeout":{
-        "request":1000,
-        "downloadFile":10000
-    },
-    "debug":true,
+"window": {
+    "navigationBarBackgroundColor": "#3cd284",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "乘车",
+    "navigationStyle": "default|custom",
+    "backgroundColor": "#3cd284",
+    "backgroundTextStyle": "dark|light",
+    "backgroundColorTop": "#ffffff",
+    "backgroundColorBottom": "#ffffff",
+    "onReachBottomDistance": 50
+},
 
-    "tabBar":{
+
+    "debug": true,
+    "tabBar": {
+        "color": "#006549",
+        "selectedColor": "#c2fbed",
+        "backgroundColor": "#0cb182",
+        "position": "bottom",
+        "borderStyle": "black",
+        "list": [{
+                "pagePath": "pages/ride/ride",
+                "text": "乘车",
+                "iconPath": "pages/ride/ride_no_selector.png",
+                "selectedIconPath": "pages/ride/ride_selector.png"
+            },
+            {
+                "pagePath": "pages/trip/trip",
+                "text": "出行",
+                "iconPath": "pages/trip/trip_no_selector.png",
+                "selectedIconPath": "pages/trip/trip_selector.png"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "pages/my/my_no_selector.png",
+                "selectedIconPath": "pages/my/my_selector.png"
+            }
+        ]
     }
 }
-

@@ -1,0 +1,7 @@
+
+
+.container{
+    font-size: 48rpx;
+    color: blueviolet;
+    text-align: center;
+}
