@@ -1,0 +1,36 @@
+
+.list{
+  color:blue
+}
+.wrap{
+  width: 100%;
+  background-color: #3cb281;
+  border: 1rpx gold solid;
+  overflow: hidden;
+}
+
+.condition{
+  margin-top: 50rpx;
+  overflow: hidden;
+  color:blue
+}
+
+.templete{
+  margin-top: 50rpx;
+  color: blue
+}
+
+.event{
+  margin-top: 50rpx;
+  color: blue
+}
+
+.btn{
+  width: 260rpx;
+  height: 80rpx;
+  background-color: gold;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}

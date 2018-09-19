@@ -1,0 +1,21 @@
+<view class='list'>列表渲染</view>
+<view class="wrap" wx:for="{{array}}">{{item}}</view>
+
+<view class='condition'>条件渲染</view>
+<view wx:if="{{view == 'WEBVIEW'}}">WEBVIEW</view>
+<view wx:elif="{{view == 'APP'}}">APP</view>
+<view wx:else="{{view == 'MINA'}}">MINA</view>
+
+<view class='templete'>模板</view>
+<template name="staffName">
+  <view>
+    FirstName: {{firstName}}, LastName: {{lastName}}
+  </view>
+</template>
+
+<template is="staffName" data="{{...staffA}}"></template>
+<template is="staffName" data="{{...staffB}}"></template>
+<template is="staffName" data="{{...staffC}}"></template>
+
+<view class='event'>事件</view>
+<view class='btn' bindtap='clickMe'>ClickMe</view>
