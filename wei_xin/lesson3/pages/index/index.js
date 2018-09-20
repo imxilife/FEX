@@ -6,6 +6,7 @@ Page({
     staffA: { firstName: 'Hulk', lastName: 'Hu'},
     staffB: { firstName: 'Shang', lastName: 'You'},
     staffC: { firstName: 'Gideon', lastName: 'Lin'},
+    hidden:flase
   },
   //options(Object)
   onLoad: function(options){

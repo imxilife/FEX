@@ -19,3 +19,6 @@
 
 <view class='event'>事件</view>
 <view class='btn' bindtap='clickMe'>ClickMe</view>
+
+
+<view hidden="{{hidden ? true:flase }}">Hidden</view>
