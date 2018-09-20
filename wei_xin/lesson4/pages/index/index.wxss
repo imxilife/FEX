@@ -1,0 +1,50 @@
+.flex-wrp {
+  display: flex;
+}
+
+.flex-item{
+  width: 100px;
+  height: 100px;
+}
+
+.bc_green{
+  background-color: #3cba00
+}
+
+.bc_red {
+  background-color: #ef5f5e
+}
+
+.bc_blue {
+  background-color: #40afff
+}
+
+.click_xg{
+  background-color: gray
+}
+
+
+.scroll-view{
+ height: 150px;
+ margin: 0 auto;  /* 表示水平居中 用于块级元素 */
+ white-space: nowrap;  /* 表示不让内部的元素换行显示 */
+}
+
+
+.item{
+  width: 150px;
+  height: 150px;
+  display: inline-block; /* 外部行为表现为行内元素在一行呈现，同时又具有块级元素特征 可以设置宽高 */
+}
+
+
+.scroll-view-y {
+  height: 300px;
+  width: 300px;
+  margin: 0 auto;
+  /* 表示水平居中 用于块级元素 */
+}
+.item-y{
+  width: 300px;
+  height: 150px;
+}

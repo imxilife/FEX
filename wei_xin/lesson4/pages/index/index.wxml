@@ -1,6 +1,50 @@
-<view class="section" hover-class="none" hover-stop-propagation="false">
-  <view class="section_title"></view>
-  <view class="flex_wrap" hover-class="none" hover-stop-propagation="false" style="flex_direction:row">
-    <view class="flex_item bc_green"></view>
+<!-- <view class="section" hover-class="none" hover-stop-propagation="false">
+  <view class="section_title">flex-direction:row</view>
+  <view class="flex_wrap" style="flex-direction:row">
+    <view class="flex_item bc_green">1</view>
+    <view class="flex_item bc_red">2</view>
+    <view class="flex_item bc_blue">3</view>
   </view>
+</view> -->
+
+<view class="section">
+  <view class="section__title">flex-direction: row</view>
+  <view class="flex-wrp" style="flex-direction:row;">
+    <view class="flex-item bc_green" hover-class="click_xg" hover-stop-propagation="{{stop}}">1</view>
+    <view class="flex-item bc_red">2</view>
+    <view class="flex-item bc_blue">3</view>
+  </view>
+</view>
+
+<view class="section">
+  <view class="section__title">flex-direction: column</view>
+  <view class="flex-wrp" style="height: 300px;flex-direction:column;">
+    <view class="flex-item bc_green">1</view>
+    <view class="flex-item bc_red">2</view>
+    <view class="flex-item bc_blue">3</view>
+  </view>
+</view>
+
+<view class="section" hover-class="none" hover-stop-propagation="false">
+  <view  hover-class="none" hover-stop-propagation="false">scoller-view-x</view>
+  <scroll-view class="scroll-view" scroll-x bind:scrolltoupper="upper" bind:scrolltolower="lower" 
+  scroll-with-animation="{{enable_animation}}" upper-threshold="10" lower-threshold="10"bind:scroll>
+    <view class="item bc_blue" hover-class="none" hover-stop-propagation="false">1</view>
+    <view class="item bc_red" hover-class="none" hover-stop-propagation="false">2</view>
+    <view class="item bc_green" hover-class="none" hover-stop-propagation="false">3</view>
+    <view class="item bc_blue" hover-class="none" hover-stop-propagation="false">5</view>
+    <view class="item bc_red" hover-class="none" hover-stop-propagation="false">6</view>
+  </scroll-view>
+</view>
+
+<view class="section" hover-class="none" hover-stop-propagation="false">
+  <view hover-class="none" hover-stop-propagation="false">scoller-view-y</view>
+  <scroll-view class="scroll-view-y" scroll-y bind:scrolltoupper="upper" bind:scrolltolower="lower" scroll-with-animation="{{enable_animation}}"
+   upper-threshold="10" lower-threshold="10" bind:scroll scroll-top="10">
+    <view class="item-y bc_blue" hover-class="none" hover-stop-propagation="false">1</view>
+    <view class="item-y bc_red" hover-class="none" hover-stop-propagation="false">2</view>
+    <view class="item-y bc_green" hover-class="none" hover-stop-propagation="false">3</view>
+    <view class="item-y bc_blue" hover-class="none" hover-stop-propagation="false">5</view>
+    <view class="item-y bc_red" hover-class="none" hover-stop-propagation="false">6</view>
+  </scroll-view>
 </view>
