@@ -1,0 +1,24 @@
+<view class="title" hover-class="none" hover-stop-propagation="false">
+  <text>button演示</text>
+</view>
+<view class="wrap" hover-class="none" hover-stop-propagation="false">
+  <button class="btn_primay" size="mini" type="primary">点击我 样式 primary</button>
+  <button class="btn_primay" size="mini" type="warn">点击我 样式 warn / 大小 mini</button>
+    <button  size="default" type="default" disabled="true">点击我 样式 default 大小 / default</button>
+        <button size="default" type="primary" loading="true" form-type="submit">点击我</button>
+</view>
+
+
+<view class="title" hover-class="none" hover-stop-propagation="false">
+  <text>checkbox 演示</text>
+</view>
+
+
+<checkbox-group bindchange="changed">
+  <label class="label" wx:for="{{items}}">
+    <checkbox  value="{{item.name}}" disabled="false" checked="{{item.checked}}" disabled="{{disable}}">
+    {{item.value}}
+    </checkbox>
+  </label>
+</checkbox-group>
+
