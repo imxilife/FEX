@@ -47,13 +47,18 @@ Page({
 
     },
     change:function name(e) {
-        console.log('change');
+        //console.log('change');
     },
     animation_finish:function (e) {
-      console.log('finish');
+      //console.log('finish');
     },
-    changeProperty:function name(e) {
-        console.log(e);
+    changeProperty: function name(e) {
+       
+        var propertyName = e.currentTarget.dataset.propertyName; //获取当前目标组件的属性
+        console.log("propertyName:" + propertyName);
+        var newData = {};
+        newData[propertyName] = e.detail.value;
+        this.setData(newData);
     },
     
 });

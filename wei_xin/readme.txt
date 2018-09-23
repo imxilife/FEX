@@ -364,8 +364,9 @@ VI、模块化
      1、容器组件
       1.1 view 类似于HMTL的div 是一个容器组件，放其他基础的组件或者嵌套使用
         属性:flex的使用
-        white-space: nowrap; 规定段落中的文本不进行换行
+        white-space: nowrap; 规定段落中的文本不进行换行 用于scroll-view 水平滚动容器
         marign 0 auto 表示block元素水平居中
+        *this 是什么意思?
      2、基础组件
      3、表单组件
      4、导航
