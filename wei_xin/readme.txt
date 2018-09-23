@@ -367,6 +367,15 @@ VI、模块化
         white-space: nowrap; 规定段落中的文本不进行换行 用于scroll-view 水平滚动容器
         marign 0 auto 表示block元素水平居中
         *this 是什么意思?
+
+      2.1  movable-area movable-view 的可移动区域 
+        2.1.1、movable-area 必须设置宽、高 默认是10px
+        2.1.2、movable-view  不能连续缩放吗
+        2.1.3 movable-area 必须设置width和height属性，不设置默认为10px
+        movable-view 必须设置width和height属性，不设置默认为10px
+        2.1.4 movable-view 默认为绝对定位，top和left属性为0px
+        2.1.5 当movable-view小于movable-area时，movable-view的移动范围是在movable-area内；当movable-view大于movable-area时，movable-view的移动范围必须包含movable-area（x轴方向和y轴方向分开考虑）
+
      2、基础组件
      3、表单组件
      4、导航

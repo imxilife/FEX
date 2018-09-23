@@ -1,0 +1,28 @@
+<movable-area class="movable" scale-area="false">
+  <movable-view class="movable_view" direction="all" damping="20" friction="2" animation="{{animation}}" x="{{x}}" y="{{y}}"
+    bindchange="bindchange" bindscale="scale">
+  </movable-view>
+</movable-area>
+
+<button class="click" size="normal" type="primary" bindtap="click">Click to me</button>
+
+<view class="title" hover-class="none" hover-stop-propagation="false">
+  只能横向滑动
+</view>
+<movable-area class="movable">
+  <movable-view class="movable_view" direction="horizontal">
+  </movable-view>
+</movable-area>
+
+<view class="title" hover-class="none" hover-stop-propagation="false">只能竖向滑动</view>
+<movable-area class="movable">
+  <movable-view class="movable_view" direction="vertical"></movable-view>
+</movable-area>
+
+
+<view class="title" hover-class="none" hover-stop-propagation="false">可缩放</view>
+<movable-area class="movable" scale-area="true">
+  <movable-view class="movable_view" direction="all" scale="true" scale-value="{{scale_value}}"></movable-view>
+</movable-area>
+
+<button class="click" size="normal" type="primary" bindtap="click2">缩放3倍</button>

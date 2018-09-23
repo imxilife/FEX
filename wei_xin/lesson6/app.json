@@ -1,0 +1,24 @@
+{
+  "window": {
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "movable-area",
+    "navigationStyle": "default|custom",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark|light",
+    "backgroundColorTop": "#ffffff",
+    "backgroundColorBottom": "#ffffff",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
+  },
+  "pages": [
+    "pages/index/index"
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  }
+  
+}
