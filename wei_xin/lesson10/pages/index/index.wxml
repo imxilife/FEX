@@ -1,0 +1,24 @@
+
+<text class="textview" selectable="false" space="false" decode="false">
+  1-1单项选择器:
+</text>
+
+<radio-group    bindchange="radiochanged">
+  <label class='label' wx:for="{{array}}" wx:for-item="item" wx:key="{{item.id}}">
+    <radio value="{{item.name}}" checked="{{item.checked}}"  /> {{item.value}}
+  </label>
+</radio-group>
+
+<text class="textview" selectable="false" space="false" decode="false">1-2滑动选择器:</text>
+<slider class="slide" min="0" max="100" step="1" disabled="{{disable}}"show-value="false" 
+  backgroundColor="#e9e9e9" block-size="20" block-color="#ffffff" bindchanging="changing" bindchange="changed" value="0" step="10">
+</slider>
+
+
+<text class="textview" selectable="false" space="false" decode="false">1-3开关选择器:</text>
+<switch class="switch" checked="false" type="checkbox|switch" bindchange="switch_changed">
+</switch>
+
+<text class="textview" selectable="false" space="false" decode="false">1-3多行输入框:</text>
+<textarea class='textarea' adjust-position="{{adjust_position}}" placeholder="请输入" placeholder-style="color:black" focus="{{focus}}"
+></textarea>

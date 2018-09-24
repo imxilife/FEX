@@ -1,0 +1,23 @@
+.textview{
+ color: #3baD00;
+ font-size: 18px;
+ font-weight: 100;
+ margin-left: 20px;
+ margin-top: 20px;
+ display: block;
+ text-align: center;
+}
+
+.label{
+  display: block;
+  overflow: hidden;
+}
+
+
+
+.textarea{
+  width: 100%;
+  background-color: #fafafa;
+  font-size: 16px;
+  padding: 0 5px;
+}
