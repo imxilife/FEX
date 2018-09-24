@@ -1,0 +1,15 @@
+
+
+<view class="title" hover-class="none" hover-stop-propagation="false">
+    <text selectable="false" space="false" decode="false">Audio</text>
+    <view class="line"></view>
+</view>
+
+<audio class="audio" poster="{{poster}}" src="{{src}}" loop="{{loop}}" controls="{{controls}}" name='{{name}}' author='{{author}}' binderror='audio_error' bindplay='play' bindpause='pause' bindtimeupdate='update' bindended='ended'/>
+
+<view class="title" hover-class="none" hover-stop-propagation="false">
+  <text selectable="false" space="false" decode="false">Image</text>
+  <view class="line"></view>
+</view>
+
+<image src="{{image_src}}" mode="{{value}}" lazy-load="{{true}}" binderror='binderror' bindload='bindload'/>

@@ -1,0 +1,17 @@
+.title{
+  padding-top: 10px;
+  text-align: center;
+  color: #999999;
+}
+.line{
+  width: 100px;
+  height: 1px;
+  background-color: #999999;
+  margin: 0 auto;
+}
+
+.audio{
+  margin-top: 10px;
+  margin-left: 50px;
+}
+
