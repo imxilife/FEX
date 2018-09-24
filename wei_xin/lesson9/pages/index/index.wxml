@@ -22,3 +22,44 @@
   </label>
 </checkbox-group>
 
+<view class="title" hover-class="none" hover-stop-propagation="false">
+  <text>form 演示</text>
+</view>
+
+
+<view class="title" hover-class="none" hover-stop-propagation="false">
+  <text>input 演示</text>
+</view>
+
+<view class="input" hover-class="none" hover-stop-propagation="false">
+  <input adjust-position="{{adjust}}" type="text" maxlength="140"
+  bindinput="input" bindfocus="focus" bindblur="blur" bindconfirm="confirm" class="input"
+  placeholder="请输入"  placeholder-style="color:red"
+  />
+</view>
+
+<view class="title" hover-class="none" hover-stop-propagation="false">
+  <text>picker 演示</text>
+</view>
+
+<text class="text_title" selectable="false" space="false" decode="false">普通选择器</text>
+<picker mode="selector" range="{{array}}" value="{{index}}" bindchange="change" bindcancel="cancel">
+  <view class="picker" hover-class="none" hover-stop-propagation="false">
+    当前选择是:{{array[index]}}
+  </view>
+</picker>
+
+<text class="text_title" selectable="false" space="false" decode="false">时间选择器</text>
+<picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange">
+  <view>当前选择: {{time}}</view>
+</picker>
+
+<text class="text_title" selectable="false" space="false" decode="false">日期选择器</text>
+<picker mode="date" value="{{date}}" start="1950-01-01" end="2090-01-01" bindchange="bindDateChange">
+  <view>当前选择: {{date}}</view>
+</picker>
+
+<text class="text_title" selectable="false" space="false" decode="false">区域选择器</text>
+<picker mode="region" value="{{region}}" bindchange="bindRegionChange">
+  <view>当前选择：{{region[0]}}，{{region[1]}}，{{region[2]}}</view>
+</picker>

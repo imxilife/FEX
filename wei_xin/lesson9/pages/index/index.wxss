@@ -5,6 +5,7 @@
   background-color: gold;
   color: black;
   font-weight: 100;
+  overflow: hidden;
 }
 
 .btn_primay{
@@ -19,4 +20,18 @@ height: 32px;
 .label{
   margin-left: 10px;
   display: block;
+}
+
+.input{
+  width: 90%;
+  height: 32px;
+  border: 1px #ffff00 solid;
+}
+
+.text_title{
+  font-size: 18px;
+  color: black;
+  background-color: #ffff00;
+  font-weight: 100;
+  margin-top: 20px;
 }

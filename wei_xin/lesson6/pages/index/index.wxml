@@ -25,4 +25,4 @@
   <movable-view class="movable_view" direction="all" scale="true" scale-value="{{scale_value}}"></movable-view>
 </movable-area>
 
-<button class="click" size="normal" type="primary" bindtap="click2">缩放3倍</button>
+<button class="click" size="normal" type="primary" bindtap="click2">缩放2倍</button>

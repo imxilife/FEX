@@ -1,0 +1,26 @@
+<view class="title" hover-class="none" hover-stop-propagation="false">
+  icon演示
+</view>
+
+<view>
+  <icon class="icon" type="success" size="23" color=""></icon>
+  <icon class="icon" type="success_no_circle" size="25" color=""></icon>
+  <icon class="icon" type="info" size="30" color=""></icon>
+  <icon class="icon" type="warn" size="32" color=""></icon>
+  <icon class="icon" type="waiting" size="36" color=""></icon>
+  <icon class="icon" type="cancel" size="48" color=""></icon>
+  <icon class="icon" type="download" size="52" color=""></icon>
+  <icon class="icon" type="search" size="56" color=""></icon>
+</view>
+
+<view class="title" hover-class="none" hover-stop-propagation="false">text演示</view>
+<view  hover-class="none" hover-stop-propagation="false">
+  <text selectable="true" space="emsp" decode="true">我是一个文本 \n你我\n</text>
+     <text selectable="true" space="emsp" decode="true">我是一个文本&nbsp</text>
+</view>
+
+<view class="title" hover-class="none" hover-stop-propagation="false">进度条演示</view>
+
+<view class="xx" hover-class="none" hover-stop-propagation="false">
+  <progress show-info="true" color="#ff0000" active="true" activeColor="#1a0000" percent="10" active-mode="backwards"/>
+</view>
