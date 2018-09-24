@@ -12,4 +12,4 @@
   <view class="line"></view>
 </view>
 
-<image src="{{image_src}}" mode="{{value}}" lazy-load="{{true}}" binderror='binderror' bindload='bindload'/>
+<image class="image" src="{{image_src}}" mode="{{image_mode}}" lazy-load="{{true}}" binderror='binderror' bindload='bindload'/>
