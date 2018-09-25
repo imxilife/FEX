@@ -1,0 +1,13 @@
+<view class="request" hover-class="none" hover-stop-propagation="false">
+
+   <block wx:if="{{url}}">
+    <view class="tip" hover-class="none" hover-stop-propagation="false">
+      <text 点击发起请求></text>
+    </view>
+  </block>
+  <block wx:else>
+    <button class="btn" type="primary" loading="{{loading}}" disabled="{{disabled}}" bindtap="request">
+      request
+    </button>
+  </block>
+</view>

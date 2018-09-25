@@ -8,12 +8,13 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"nodeModules": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.3.0",
 	"appid": "wx54a6634d68cc9623",
-	"projectname": "lesson12",
+	"projectname": "net",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
