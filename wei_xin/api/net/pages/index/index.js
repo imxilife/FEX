@@ -7,7 +7,7 @@
 
 //E: \Code\ Javascript_example\ front - end_example\ wei_xin\ api\ net\ pages\ index\ index.js
 
-const downloadFileUrl = require("config.js").downloadFileUrl;
+const downloadFileUrl = require("../config.js").downloadFileUrl;
 
 Page({
   data: {

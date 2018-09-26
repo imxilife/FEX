@@ -1,18 +1,4 @@
 {
-
-"pages": [
-    "pages/upload/upload",
-    "pages/index/index",
-    "pages/request/request"   
-],
-
-  
-  "networkTimeout": {
-    "request": 10000,
-    "connectSocket": 10000,
-    "uploadFile": 10000,
-    "downloadFile": 10000
-  },
   "window": {
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTextStyle": "white",
