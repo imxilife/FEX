@@ -48,10 +48,12 @@ Page({
     },
     setStorage:function(){
         console.log('setStorage');
+        let key = this.data.key;
+        let value = this.data.data;
         let self  = this;
         wx.setStorage({
-            key: self.key,
-            data: self.data,
+            key: key,
+            data: value,
             success: (res)=>{
                 self.setData({
                     dialog:{
@@ -74,7 +76,7 @@ Page({
         console.log('getStorage');
         let self = this;
         wx.getStorage({
-            key: self.key,
+            key: self.data.key,
             success: (res)=>{
                 self.setData({
                     dialog:{
@@ -95,20 +97,42 @@ Page({
 
     getAllStorage:function(){
         console.log('getAllStorage');
+        wx.getStorageInfo({
+            success: (result)=>{
+                console.log(result);
+            },
+            fail: ()=>{
+                console.log('fail');
+            },
+            complete: ()=>{
+                console.log('complete');
+            }
+        });
     },
 
     clearStorage:function(){
         console.log('clearStorage');
+        wx.clearStorage({
+            success:function(){
+                console.log('success');
+            },
+            fail:function(){
+                console.log('fail');
+            },
+            complete:function(){
+                console.log('complete');
+            }
+        });
     },
 
     keyChange:function(e){
         console.log('keyChange input value is '+e.detail.value);
-        this.key = e.detail.value;
+        this.data.key = e.detail.value;
     },
 
     dataChange:function(e){
         console.log('dataChange input value is '+e.detail.value);
-        this.data = e.detail.value;
+        this.data.data = e.detail.value;
     }
 
 });
