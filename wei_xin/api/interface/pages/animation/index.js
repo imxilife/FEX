@@ -37,33 +37,61 @@ Page({
   },
 
   rotate:function (params) {
-    this.animation.rotate(Math.random() * 720 - 360).step();
-    this.setData({
-      animation: this.animation.exprot
-    });
+
+    this.animation.rotate(Math.random()* 720-360).step();
+    this.setData({animation:this.animation.export()});
   },
   scale:function (params) {
-    animation.scale(1,1);
+    this.animation.scale(Math.random()*2).step();
+    this.setData({ animation: this.animation.export()});
   },
   translate:function (params) {
-    animation.translate(2,1);
+    this.animation.translate(Math.random() * 100-50,Math.random()*100-50).step();
+    this.setData({ animation: this.animation.export() });
   },
   skew:function (params) {
-    animation.skew(40,30);
+    this.animation.skew(Math.random()*90,Math.random()*90).step();
+    this.setData({ animation: this.animation.export() });
   },
   rotateAndScale:function (params) {
-    
+    this.animation.rotate(Math.random()*720-360)
+      .scale(Math.random()*2)
+      .step();
+      this.setData({animation:this.animation.export()});
   },
   rotateThenScale:function (params) {
-    
+    this.animation.rotate(Math.random() * 720 - 360).step()
+      .scale(Math.random() * 2)
+      .step();
+    this.setData({ animation: this.animation.export() });
   },
   all:function (params) {
-    
+    this.animation.rotate(Math.random() * 720 - 360)
+      .scale(Math.random() * 2)
+      .translate(Math.random() * 100 - 50, Math.random() * 100 - 50)
+      .skew(Math.random() * 90, Math.random() * 90)
+      .step();
+      this.setData({
+      animation: this.animation.export()
+    });
   },
   allInQueue:function (params) {
-    
+    this.animation.rotate(Math.random() * 720 - 360).step()
+      .scale(Math.random() * 2).step()
+      .translate(Math.random() * 100 - 50, Math.random() * 100 - 50).step()
+      .skew(Math.random() * 90, Math.random() * 90).step();
+    this.setData({
+      animation: this.animation.export()
+    });
   },
   reset:function (params) {
-    
+    this.animation.rotate(0,0)
+      .scale(1)
+      .translate(0,0)
+      .skew(0,0)
+      .step({duration:0});
+    this.setData({
+      animation: this.animation.export()
+    });
   }
 });
