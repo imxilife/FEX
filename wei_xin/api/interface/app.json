@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/navigationBar/index",
+    "pages/navigator/index",
+    "pages/pullDownRefresh/index",
+    "pages/animation/index",
+    "pages/tabBar/index",
+    "pages/pageScroll/pagescroll",
+    "pages/modal/modal",
+    "pages/toast/toast",
+    "pages/loading/loading",
+    "pages/actionSheet/actionSheet"
+  ],
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  
+  "window": {
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "",
+    "navigationStyle": "default|custom",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark|light",
+    "backgroundColorTop": "#ffffff",
+    "backgroundColorBottom": "#ffffff",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
+  }
+  
+}
