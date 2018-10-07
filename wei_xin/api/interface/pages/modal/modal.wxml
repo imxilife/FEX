@@ -1,0 +1,8 @@
+
+<view class="wrap" hover-class="none" hover-stop-propagation="false" bindtap='click_show'>
+modal
+</view>
+
+<view class="wrap" hover-class="none" hover-stop-propagation="false" bindtap='click_hide'>
+  modal
+</view>
