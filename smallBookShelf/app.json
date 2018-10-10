@@ -1,0 +1,28 @@
+{
+
+    "pages": [
+        "pages/books/index"
+    ],
+    "networkTimeout": {
+        "request": 10000,
+        "connectSocket": 10000,
+        "uploadFile": 10000,
+        "downloadFile": 10000
+    },
+    "tabBar": {
+        "color": "",
+        "selectedColor": "",
+        "backgroundColor": "",
+        "position": "bottom",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "",
+                "text": "",
+                "iconPath": "",
+                "selectedIconPath": ""
+            }
+        ]
+    }
+    
+}
