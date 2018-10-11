@@ -19,13 +19,15 @@
         duration="{{duration}}" 
         circular="{{circular}}" 
         vertical="{{vertical}}"
+        privious-margin="{{margin}}"
         bindchange="" 
         bindanimationfinish="">
         <block wx:for="{{bookList}}" wx:key="index">
             <swiper-item class="swiper-item">
                 <view 
                     class="book-container bg-white"
-                    hover-class="book-container-hover" 
+                    hover-class="book-container-hover"
+                    catchtap="goDetail" 
                     data-author="{{item.author}}" 
                     data-category="{{item.category}}"
                     data-image="{{item_cover_url}}"
