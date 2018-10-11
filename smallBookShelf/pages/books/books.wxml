@@ -10,26 +10,41 @@
 
 
     <block wx:else>
-        <swiper class="" indicator-dots="false" indicator-color="{{indicator}}" autoplay="{{autoplay}}" current="0"
-            interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" vertical="{{vertical}}" bindchange=""
-            bindanimationfinish="">
-            <block wx:for="{{bookList}}">
-                <swiper-item class="" item-id="">
-                    <view class="" hover-class="none" hover-stop-propagation="false">
-                        <image class="" src="" mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror=""
-                            bindload=""></image>
-                        <view class="" hover-class="none" hover-stop-propagation="false">
-                            <text class="" selectable="false" space="false" decode="false"></text>
-                        </view>
-                        <view class="" hover-class="none" hover-stop-propagation="false">
-                            <text class="" selectable="false" space="false" decode="false"></text>
-                        </view>
-                        <view class="" hover-class="none" hover-stop-propagation="false">
-                            <text class="" selectable="false" space="false" decode="false"></text>
-                        </view>
+        <swiper class="swiper" 
+        indicator-dots="{{indicator-dots}}" 
+        indicator-color="{{indicator}}" 
+        autoplay="{{autoplay}}"
+        current="0" 
+        interval="{{interval}}" 
+        duration="{{duration}}" 
+        circular="{{circular}}" 
+        vertical="{{vertical}}"
+        bindchange="" 
+        bindanimationfinish="">
+        <block wx:for="{{bookList}}" wx:key="index">
+            <swiper-item class="swiper-item">
+                <view 
+                    class="book-container bg-white"
+                    hover-class="book-container-hover" 
+                    data-author="{{item.author}}" 
+                    data-category="{{item.category}}"
+                    data-image="{{item_cover_url}}"
+                    data-id="{{item.book_id}}" 
+                    data-name="{{item.book_name}}" 
+                    data-price="{{item.book_price}}"
+                    data-publisher="{{item.book_publisher}}" 
+                    data-file="{{item.file_url}}">
+                    <view class="book-image">
+                        <image class="cover_imag" src="{{item.cover_url}}" mode="scaleToFill"></image>
                     </view>
-                </swiper-item>
-            </block>
-        </swiper>
+                    <view class="book-info">
+                        <text class="book-name">{{item.book_name}}</text>
+                        <text class="author">{{item.author}}</text>
+                        <text class="publisher">{{item.book_publisher}}</text>
+                    </view>
+                </view>
+            </swiper-item>
+        </block>
+     </swiper>
     </block>
 </view>
