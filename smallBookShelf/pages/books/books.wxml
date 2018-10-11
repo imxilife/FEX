@@ -1,0 +1,15 @@
+
+
+<block wx:if="{{'loading'}}">
+    <!-- showLoading -->
+</block>
+
+<block wx:else>
+    <swiper class="" indicator-dots="false" indicator-color="{{indicator}}" autoplay="{{autoplay}}" 
+        current="0" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" vertical="{{vertical}}" 
+        bindchange="" bindanimationfinish="">
+        <swiper-item class="" item-id="">
+            
+        </swiper-item>
+    </swiper>
+</block>

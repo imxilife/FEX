@@ -1,8 +1,19 @@
 {
 
     "pages": [
-        "pages/books/index"
+        "pages/books/books",
+        "pages/comment/comment",
+        "pages/detail/detail",
+        "pages/my/my",
+        "pages/mybooks/mybooks"
     ],
+    "window": {
+        "navigationBarBackgroundColor": "#f2f2f2",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "BookShelf",
+        "backgroundTextStyle": "light",
+        "enablePullDownRefresh": true
+    },
     "networkTimeout": {
         "request": 10000,
         "connectSocket": 10000,
@@ -10,19 +21,23 @@
         "downloadFile": 10000
     },
     "tabBar": {
-        "color": "",
-        "selectedColor": "",
-        "backgroundColor": "",
+        "color": "#bfbfbf",
+        "selectedColor": "#1aad19",
         "position": "bottom",
         "borderStyle": "black",
-        "list": [
+        "list": [{
+                "pagePath": "pages/books/books",
+                "text": "书架",
+                "iconPath": "images/book.png",
+                "selectedIconPath": "images/bookSelected.png"
+            },
             {
-                "pagePath": "",
-                "text": "",
-                "iconPath": "",
-                "selectedIconPath": ""
+                "pagePath": "pages/my/my",
+                "text": "我的",
+                "iconPath": "images/my.png",
+                "selectedIconPath": "images/mySelected.png"
             }
         ]
     }
-    
+
 }
