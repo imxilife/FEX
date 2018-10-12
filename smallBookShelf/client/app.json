@@ -2,9 +2,9 @@
 
     "pages": [
         "pages/books/books",
+        "pages/my/my",
         "pages/comment/comment",
         "pages/detail/detail",
-        "pages/my/my",
         "pages/mybooks/mybooks"
     ],
     "window": {

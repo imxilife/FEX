@@ -1,6 +1,6 @@
 
 
-var api = require('../config/config.js');
+var api = require('../../config/config.js');
 var app = getApp();
 
 //Page Object
@@ -20,7 +20,8 @@ Page({
   },
   //options(Object)
   onLoad: function(){
-    getBookList();
+    console.log('books page onLoad');
+    this.getBookList();
   },
 
   onReady: function(){
@@ -55,19 +56,14 @@ Page({
   */
   getBookList:function (params) {
       let that = this;
-      var reqTask = wx.request({
-        url: api.getBooksUrl,
+      wx.request({
+        url: api.getBookUrl,
         data: {
           is_all: 1
         },
-        header: {
-          'content-type': 'application/json'
-        },
-        method: 'GET',
-        dataType: 'json',
-        responseType: 'text',
         success: (res) => {
           let data = res.data;
+          console.log(data.data);
           if (data.result === 0) {
             setTimeout(() => {
               that.setData({

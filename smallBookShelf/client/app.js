@@ -16,9 +16,11 @@ App({
 
     /* 检查登录态标识是否存在 */
     checkLoginState: function () {
+        console.log('checkLoginState');
         let that = this;
         let loginFlag = wx.getStorageSync('loginFlag'); //检查登录态标识
         if (loginFlag) {
+            console.log('登录态标识有效，go checkSession');
             wx.checkSession({
                 success: (res) => {
                     //do request 
@@ -36,6 +38,7 @@ App({
                 },
             });
         } else {
+            console.log('登录态标识无效 去登录');
             that.doLogin(); //无登录态
         }
     },
@@ -57,6 +60,7 @@ App({
                      * @param: encryptedData  [String]
                      * @param: iv             [String]
                      **/
+                    console.log('登录成功,获取用户信息=>'+JSON.stringify(loginRes));
                     wx.getUserInfo({  //登录成功，获取用户信息
                         withCredentials: true,
                         lang: 'zh_CN',
@@ -71,16 +75,10 @@ App({
                                     encryptedData:infoRes.encryptedData,//用户敏感信息
                                     iv:infoRes.iv //解密算法的向量
                                 },
-                                header: {
-                                    'content-type': 'application/json'
-                                },
-                                method: 'GET',
-                                dataType: 'json',
-                                responseType: 'text',
                                 success: (res) => {
-                                    console.log(res);
+                                    that.showInfo('登录成功');
                                     res = res.data;
-                                    if(res.data === 0){
+                                    if(res.result === 0){
                                         that.globalData.userInfo = res.userInfo;
                                         wx.setStorageSync('userInfo', JSON.stringify(res.userInfo));
                                         wx.setStorageSync('loginFlag',res.skey);

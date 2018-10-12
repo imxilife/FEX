@@ -1,7 +1,7 @@
 <view class="swiper-container">
 
 
-    <block wx:if="{{'loading'}}">
+    <block wx:if="{{loading}}">
         <!-- showLoading -->
         <view class="donut-container">
             <view class="donut"></view>
