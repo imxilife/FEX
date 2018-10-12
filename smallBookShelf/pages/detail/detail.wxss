@@ -1,0 +1,49 @@
+
+
+
+.book-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 50rpx 30rpx;
+}
+
+.book-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.book-image{
+    width: 200rpx;
+    height: 300rpx;
+    box-shadow: 0 0 10rpx #cdcdcd
+}
+
+.book-desc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding-left: 30rpx;
+}
+
+.book-main-text{
+    color: #1e1e1e;
+    font-size: 35rpx;
+}
+
+.book-text{
+    color: #8a8a8a;
+    font-size: 30rpx;
+}
+
+.button-area > button{
+    font-size: 30rpx;
+}
+
+
