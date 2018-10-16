@@ -1,0 +1,64 @@
+
+.user-container{
+  padding: 50rpx 0;
+}
+
+.userinfo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.userinfo-avater{
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname{
+  color: #aaa;
+}
+
+.table-container{
+  margin-top: 30rpx;
+}
+
+.tab-item{
+  padding: 20rpx 30rpx;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tab-item-hover{
+  background-color: #e6e6e6;
+}
+
+.border-bottom{
+  border-bottom: 1px solid #999999
+}
+
+.tab-text{
+  display: inline-block;
+  margin-left: 20rpx;
+  color: #1e1e1e;
+}
+
+.tab-icon{
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.tab-arrow{
+  display: inline-block;
+  width: 20rpx;
+  height: 20rpx;
+  border: 1px solid #cdcdcd;
+
+  border-left: none;
+  border-bottom: none;
+
+  transform: rotate(45deg);
+
+}
