@@ -8,7 +8,7 @@
 
 <!-- comment area -->
   <view class="comment-area bg-white">
-    <textarea placeholder="关于这本书的看法..." maxlength="140" value="{{comment}}" bindinput:'inputComment'></textarea>
+    <textarea placeholder="关于这本书的看法..." maxlength="140" value="{{comment}}" bindinput="inputComment"></textarea>
   </view>
 
   <!-- buttom button -->
