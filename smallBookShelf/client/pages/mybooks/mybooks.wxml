@@ -1,0 +1,45 @@
+<view class="loading-container" wx:if="{{showLoading}}">
+    <view class="dount-container">
+        <view class="dount"></view>
+    </view>
+</view>
+
+<view class="book-container" wx:else>
+    <block wx:if="{{bookList.lenght >0 }}">
+        <block wx:for="{{bookList}}" wx:key="index">
+            <view class="book bg-white" hover-class="book-hover" data-id="{{item.bkid}}" date-file="{{item.bkfile}}"
+                catchtap="readBook">
+                <view class="book-image">
+                    <image src="{{item.bkconver}}" mode="scaleToFill" />
+                </view>
+                <view class="book-name">
+                    <text>{{item.bkname}}</text>
+                </view>
+            </view>
+        </block>
+    </block>
+
+    <block wx:else>
+        <view class="empty-container">
+            <image class="userinfo-avatar" src="../../images/sad.png" background-size="conver" />
+            <text class="donut-container" >么有买书 (^-^)</text>
+        </view>
+    </block>
+</view>
+
+
+<!-- 下载浮层 -->
+<view class="full-loading" wx:if="{{showDownloading}}">
+
+    <text>书籍下载中...</text>
+    <view>
+        <progress percent="{{downloadPercent}}" 
+        stroke-width="6" 
+        activeColor="#1aad19" 
+        backgroundColor="#cdcdcd"
+        show-info 
+        active 
+        active-mode="forwards" />
+    </view>
+
+</view>
