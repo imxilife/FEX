@@ -21,6 +21,7 @@ Page({
             title: '登录中...',
             mask: true,
         });
+        //app.doLogin(that.getUserInfo());
         app.doLogin(that.getUserInfo());
     },
 

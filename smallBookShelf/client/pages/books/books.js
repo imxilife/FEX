@@ -20,18 +20,7 @@ Page({
   },
   //options(Object)
   onLoad: function(){
-    console.log('books page onLoad');
     this.getBookList();
-  },
-
-  onReady: function(){
-    console.log('onReady');
-  },
-  onShow: function(){
-    console.log('onShow');
-  },
-  onHide: function(){
-    console.log('onHide');
   },
 
   onShareAppMessage: function(res){
@@ -63,7 +52,7 @@ Page({
         },
         success: (res) => {
           let data = res.data;
-          console.log(data.data);
+         // console.log(data.data);
           if (data.result === 0) {
             setTimeout(() => {
               that.setData({

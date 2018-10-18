@@ -22,14 +22,12 @@ Page({
   onLoad: function(options){
     let _bookInfo = {};
     let that = this;
-    for(let key in ontions){
+    for (let key in options) {
       _bookInfo[key] = decodeURIComponent(options[key]);
     }
-
     that.setData({
       bookInfo:_bookInfo
     });
-
     that.getPageData();
   },
 
@@ -41,12 +39,12 @@ Page({
       skey:app.getLoginFlag()
     };
 
+    console.log('bookId:'+that.data.bookInfo.id+"|"+"skey:"+app.getLoginFlag());
+
     wx.request({
       url: api.queryBookUrl,
       data: requestData,
       method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
       success: (res)=>{
         if(res.data.result === 0){
             that.setData({commentList:res.data.data.list || [],

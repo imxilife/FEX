@@ -1,8 +1,8 @@
 <view class="user-container bg-white">
 
   <view class="userinfo">
-    <block wx:if="{{!hasLogin}}">
-      <image src="" class="userinfo-avater" catchtap="doLogin" background-size="cover" />
+    <block wx:if="{{hasLogin}}">
+      <image src="../../images/login.png" class="userinfo-avater" catchtap="doLogin" background-size="cover" />
       <text class="userinfo-nickname">点击登录</text>
     </block>
 
@@ -13,7 +13,6 @@
   </view>
 
   <view class="table-container bg-white">
-
     <view class="tab-item border-bottom">
       <view>
         <image src="../../images/luckyCoin.png" mode="aspectFill" class="tab-icon"/>
