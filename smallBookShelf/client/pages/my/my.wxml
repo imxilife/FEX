@@ -3,7 +3,8 @@
   <view class="userinfo">
     <block wx:if="{{hasLogin}}">
       <image src="../../images/login.png" class="userinfo-avater" catchtap="doLogin" background-size="cover" />
-      <text class="userinfo-nickname">点击登录</text>
+      <!-- <text class="userinfo-nickname">点击登录</text> -->
+      <button class="btn" size="mini" type="primary" bindtap="doLogin" >点击登录</button>
     </block>
 
     <block wx:else>
@@ -15,10 +16,10 @@
   <view class="table-container bg-white">
     <view class="tab-item border-bottom">
       <view>
-        <image src="../../images/luckyCoin.png" mode="aspectFill" class="tab-icon"/>
+        <image src="../../images/luckyCoin.png" mode="aspectFill" class="tab-icon" />
         <text class="tab-text">积分</text>
       </view>
-      <text class="tab-text" wx:if="{{hasLogin}}">{{userInfo.balance}}</text>
+      <text class="tab-text" wx:if="{{!hasLogin}}">{{userInfo.balance}}</text>
       <text class="tab-text" wx:else></text>
     </view>
 
