@@ -26,7 +26,7 @@
                     catchtap="goDetail" 
                     data-author="{{item.author}}" 
                     data-category="{{item.category}}"
-                    data-image="{{item_cover_url}}"
+                    data-image="{{item.cover_url}}"
                     data-id="{{item.book_id}}" 
                     data-name="{{item.book_name}}" 
                     data-price="{{item.book_price}}"

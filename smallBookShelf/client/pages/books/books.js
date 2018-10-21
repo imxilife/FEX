@@ -77,6 +77,8 @@ Page({
         navigateUrl += key + '=' +info[key] + '&';
     }
     navigateUrl = navigateUrl.substring(0, navigateUrl.length - 1);
+
+    console.log('navigateUrl:'+navigateUrl);
     
     wx.navigateTo({
       url: navigateUrl,

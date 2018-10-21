@@ -1,6 +1,6 @@
 .book-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
@@ -9,7 +9,7 @@
 
 .book-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
 }
@@ -39,7 +39,7 @@
     font-size: 30rpx;
 }
 
-.button-area>button {
+.button-area > button {
     font-size: 30rpx;
 }
 
@@ -56,7 +56,7 @@
 }
 
 
-.comment-title>text {
+.comment-title > text {
     font-size: 30rpx;
     color: #cdcdcd;
 }
@@ -70,6 +70,8 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
+
+    margin-bottom: 20rpx;
 }
 
 
