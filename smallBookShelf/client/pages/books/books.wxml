@@ -11,17 +11,13 @@
 
     <block wx:else>
         <swiper class="swiper" 
-        indicator-dots="{{indicator-dots}}" 
-        indicator-color="{{indicator}}" 
-        autoplay="{{autoplay}}"
-        current="0" 
-        interval="{{interval}}" 
-        duration="{{duration}}" 
+        indicator-dots="{{indicator-dots}}"  
+        autoplay="{{autoplay}}" 
         circular="{{circular}}" 
         vertical="{{vertical}}"
-        privious-margin="{{margin}}"
-        bindchange="" 
-        bindanimationfinish="">
+        previous-margin="{{sideMargin}}"
+        next-margin="{{sideMargin}}"
+        >
         <block wx:for="{{bookList}}" wx:key="index">
             <swiper-item class="swiper-item">
                 <view 
@@ -36,14 +32,17 @@
                     data-price="{{item.book_price}}"
                     data-publisher="{{item.book_publisher}}" 
                     data-file="{{item.file_url}}">
+
                     <view class="book-image">
                         <image class="cover_imag" src="{{item.cover_url}}" mode="scaleToFill"></image>
                     </view>
+                    
                     <view class="book-info">
                         <text class="book-name">{{item.book_name}}</text>
                         <text class="author">{{item.author}}</text>
                         <text class="publisher">{{item.book_publisher}}</text>
                     </view>
+                    
                 </view>
             </swiper-item>
         </block>

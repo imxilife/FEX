@@ -28,12 +28,12 @@ Page({
     wx.request({
         url: api.getBoughtBookUrl,
         data: {
-            sKey: flag
+            skey: flag
         },
         method: 'GET',
         success: (res) => {
                 let data = res.data;
-                if(date.result === 0){
+                if(data.result === 0){
                 that.setData({
                     bookList: data.list || [],
                 });

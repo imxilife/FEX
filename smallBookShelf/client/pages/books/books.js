@@ -5,24 +5,25 @@ var app = getApp();
 
 //Page Object
 Page({
+  
   data: {
-    
     bookList:[],
-    indicatordots:false,
-    indicator:false,
-    autoPlay:false,
-    interval:5000,
-    duration:3000,
-    circular:true,
-    vertical:false,
-    loading:true,
-    margin:'100rpx',
+    indicatordots:false,   //是否显示轮播指示点
+    autoPlay:false,        //是否自动播放
+    interval:5000,         //轮播间隔
+    duration:3000,         //轮播时长
+    circular:true,         //是否采用衔接滑动
+    vertical:false,        //是否垂直滚动
+    sideMargin:'100rpx',   //幻灯片前后距
+    loading:true,          //是否显示loading状态
   },
-  //options(Object)
+  
+  //生命周期函数 加载页面
   onLoad: function(){
     this.getBookList();
   },
 
+  //转发分享
   onShareAppMessage: function(res){
     if(res.from === 'button'){
       console.log('来自页面内转发按钮');
@@ -39,10 +40,8 @@ Page({
       }
     }
   },
-
-  /* 
-  获取所有书籍列表
-  */
+ 
+  //获取所有书籍列表
   getBookList:function (params) {
       let that = this;
       wx.request({
@@ -59,7 +58,7 @@ Page({
                 bookList: data.data,
                 loading: false,
               });
-            }, 5000);
+            }, 2000);
           }
         },
         fail: (error) => {
@@ -67,10 +66,9 @@ Page({
         },
       });
   },
+ 
 
-  /* 
-  转到书籍详情页面
-  */
+  //转到书籍详情页面
   goDetail:function (ev) {
     let info = ev.currentTarget.dataset;
     let navigateUrl = '../detail/detail?';
@@ -84,6 +82,13 @@ Page({
       url: navigateUrl,
     });
   },
+  
+
+  //生命周期函数 界面呈现
+  onShow:function () {
+    console.log('book page on show ');
+  }
+
 
 });
 

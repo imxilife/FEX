@@ -3,6 +3,7 @@
 
   box-sizing: border-box;
   padding: 120rpx 0 50rpx 0;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,6 +15,7 @@
 }
 
 .swiper-item {
+  /* 宽、高自动设置为100% */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,18 +52,19 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+
   margin-top: 20px;
 }
 
 .book-name{
-  font-size: 35rpx;
   color: #1e1e1e;
+  font-size: 35rpx;
   margin-bottom: 8rpx;
 }
 .author{
-  margin-bottom: 8rpx;
   color: #8a8a8a;
   font-size: 30rpx;
+  margin-bottom: 8rpx;
 }
 
 .publisher{

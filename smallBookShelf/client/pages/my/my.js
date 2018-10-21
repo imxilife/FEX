@@ -44,7 +44,7 @@ Page({
     //显示未登录
     showNoLogin(context) {
         context.setData({
-            hasLogin: false
+            hasLogin: true
         });
     },
 
@@ -56,7 +56,7 @@ Page({
         if (userInfo) {
             console.log('更新数据',userInfo);
             that.setData({
-                hasLogin: false,
+                hasLogin: true,
                 userInfo: userInfo
             });
         } else {
