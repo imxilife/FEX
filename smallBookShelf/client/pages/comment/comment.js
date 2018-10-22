@@ -20,8 +20,14 @@ Page({
       _bookInfo[key] = decodeURIComponent(options[key]);
     }
     console.log(_bookInfo);
+<<<<<<< HEAD
     that.setData({
       bookInfo:_bookInfo
+=======
+   // that.data.bookInfo = _bookInfo;
+    that.setData({
+        bookInfo:_bookInfo
+>>>>>>> 修改评论页面逻辑
     });
   },
 
@@ -38,23 +44,26 @@ Page({
     });
   },
 
-  onReady: function () {
 
-  },
-  onShow: function () {
+   //生命周期函数 初次渲染
+  onReady: function () {},
 
-  },
+  //生命周期函数 显示回调
+  onShow: function () {},
+
 
   inputComment: function (ev) {
     let cmt = ev.detail.value;
-    let that = this;
+    console.log('cmt:',cmt);
+    let that  = this;
     that.setData({
       comment: cmt
     });
   },
 
-  checkUserInput: function (params) {
 
+  //检查用户输入
+  checkUserInput: function (params) {
     let that = this;
     let comment = that.data.comment;
     let showToastFlag = false;
@@ -80,23 +89,23 @@ Page({
 
   },
 
+  //检查用户输入是否为空
   checkEmpty: function (comment) {
     return comment === '';
   },
 
+  //检查用户输入是否合法
   checkIllegal: function (input) {
     let patern = /[`#^<>:"?{}\/;'[\]]/im;
     let _result = patern.test(input);
     return _result;
   },
 
-
+  //提交评论
   submitComment: function (ev) {
-
+    console.log('submit comment...');
     let that = this;
-
     let formId = ev.detail.formId;
-
     if (that.checkUserInput) {
       console.log('submit');
       let requestData = {

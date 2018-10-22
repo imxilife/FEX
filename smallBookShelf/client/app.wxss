@@ -57,7 +57,7 @@ text {
 }
 
 .full-button {
-  width: 80%;
+  width: 100%;
 }
 
 /*甜甜圈loading start*/
