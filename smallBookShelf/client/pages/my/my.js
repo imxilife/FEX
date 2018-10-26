@@ -7,7 +7,7 @@ var app = getApp();
 
 Page({
     data: {
-        hasLogin: wx.getStorageInfoSync('loginFlag') ? true : false,
+        hasLogin: false,
         userInfo: {} //用户信息
     },
 
