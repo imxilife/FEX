@@ -7,8 +7,9 @@
   flex-direction: column;
 }
 
-book-name{
-  padding: 10rpx 30rpx
+.book-name{
+  padding: 10rpx 30rpx;
+  text-align: center;
 }
 
 .comment-area{

@@ -20,7 +20,9 @@ Page({
       _bookInfo[key] = decodeURIComponent(options[key]);
     }
     console.log(_bookInfo);
-    bookInfo = _bookInfo;
+    that.setData({
+      bookInfo:_bookInfo
+    });
   },
 
   /**
@@ -45,6 +47,7 @@ Page({
 
   inputComment: function (ev) {
     let cmt = ev.detail.value;
+    let that = this;
     that.setData({
       comment: cmt
     });
