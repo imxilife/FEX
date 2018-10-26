@@ -100,7 +100,7 @@ Page({
     if (that.checkUserInput) {
       console.log('submit');
       let requestData = {
-        sKey: app.getLoginFlag(),
+        skey: app.getLoginFlag(),
         content: that.data.comment,
         bookid:that.data.bookInfo.id,
         formId:formId

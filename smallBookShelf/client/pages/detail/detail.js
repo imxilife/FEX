@@ -44,10 +44,11 @@ Page({
       data: requestData,
       method: 'GET',
       success: (res)=>{
-        console.log(res);
+        console.log('我是谁',res);
         res = res.data;
         if(res.result === 0){
-            that.setData({commentList:res.data.list || [],
+          console.log('返回评论列表OK 数据:',res.data.lists);
+            that.setData({commentList:res.data.lists || [],
               bookIsBuy:res.data.is_buy
             });
 

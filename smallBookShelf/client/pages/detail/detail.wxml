@@ -53,10 +53,10 @@
 
     <view class="comment-area" wx:else>
 
-      <block wx:if="{{commentList.lenght > 0}}">
+      <block wx:if="{{commentList.length > 0}}">
         <view class="comment-item" wx:for="{{commentList}}" wx:key="index">
           <view class="avatar-container">
-            <image mode="scaleToFill" src="{{item.uavater}}" class="user-avater" />
+            <image mode="scaleToFill" src="{{item.uavatar}}" class="user-avater" />
           </view>
 
           <view class="comment-content">
@@ -64,6 +64,7 @@
             <text class="user-comment">{{item.ccontent}}</text>
             <text class="comment-time">{{item.ctime}}</text>
           </view>
+          <view class="divder"></view>
         </view>
       </block>
 
