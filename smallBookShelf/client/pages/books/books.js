@@ -31,16 +31,16 @@ Page({
     return{
       title:'小书架首页',
       path:'/pages/books/books',
-      imageUrl:'images/bookstore.png',
+      imageUrl:'/images/bookstore.png',
       success:function (res) {
         console.log('转发成功');
       },
       fail:function (error) {
         console.log('转发失败');
       }
-    }
+    };
   },
- 
+
   //获取所有书籍列表
   getBookList:function (params) {
       let that = this;
