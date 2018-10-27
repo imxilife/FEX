@@ -20,14 +20,8 @@ Page({
       _bookInfo[key] = decodeURIComponent(options[key]);
     }
     console.log(_bookInfo);
-<<<<<<< HEAD
     that.setData({
       bookInfo:_bookInfo
-=======
-   // that.data.bookInfo = _bookInfo;
-    that.setData({
-        bookInfo:_bookInfo
->>>>>>> 修改评论页面逻辑
     });
   },
 
