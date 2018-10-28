@@ -1,6 +1,6 @@
 
 //服务器域名
-const baseUrl = "http://127.0.0.1:3003/";
+const baseUrl = "http://149.28.75.100:3003/";
 //获取书籍信息接口地址
 const getBookUrl = baseUrl + "api/book/getBooks";
 //写评论接口
