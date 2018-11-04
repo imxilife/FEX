@@ -28,8 +28,9 @@ app.use(session({
   cookie:{
     maxAge: config.session.maxAge //过期时间 过期后cookie中的session id 自动删除
   },
-  store: new MongoStore({  //将session存储到mongodb
-    url: config.mongodb //mongodb地址
+  store: new MongoStore({ //将session存储到mongodb
+    url: config.mongodb, //mongodb地址
+    autoRemove: 'native'
   })
 }))
 

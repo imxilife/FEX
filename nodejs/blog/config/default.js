@@ -23,5 +23,5 @@ module.exports = {
     key: 'myblog',
     maxAge: 2592000000
   },
-  mongod: 'mongodb://149.28.75.100/myblog'
+  mongodb: 'mongodb://149.28.75.100:27017/myblog'
 }
