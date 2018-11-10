@@ -45,9 +45,9 @@ app.locals.blog = {
 
 //添加模板必须的三个变量
 /* app.use(function (res, req, next) {
- // res.locals.user= req.session.user;
+  res.locals.user= req.session.user;
   res.locals.success = req.flash('success').toString()
-  res.locals.error = req.flash('error').toString
+  res.locals.error = req.flash('error').toString()
   next()
 }) */
 
