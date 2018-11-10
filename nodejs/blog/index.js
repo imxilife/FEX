@@ -12,7 +12,7 @@ const pkg = require('./package')
 const app = express()
 
 //设置模板目录
-app.set('views', path.join('views',__dirname))
+app.set('views', path.join('views', __dirname))
 //设置模板引擎
 app.set('view engine','ejs')
 
@@ -39,17 +39,17 @@ app.use(flash())
 
 //设置模板全局常量
 app.locals.blog = {
-  title:pkg.name,
-  description:pkg.description
+  title: pkg.name,
+  description: pkg.description
 }
 
 //添加模板必须的三个变量
-/* app.use(function (res, req, next) {
-  res.locals.user= req.session.user;
+ app.use(function (req, res, next) {
+  res.locals.user= req.session.user
   res.locals.success = req.flash('success').toString()
   res.locals.error = req.flash('error').toString()
   next()
-}) */
+})
 
 //路由
 routes(app)

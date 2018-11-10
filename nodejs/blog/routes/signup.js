@@ -10,7 +10,7 @@ router.get('/', checkNotLogin, function (req, res, next) {
 })
 
 
-// POST /signup 用户注册
+// POST /signup 用户注册  提交用户信息
 router.post('/', checkNotLogin, function (req, res, next) {
   res.send('注册')
 })
