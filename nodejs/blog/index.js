@@ -12,7 +12,6 @@ const pkg = require('./package')
 const app = express()
 
 //设置模板目录
-//app.set('views', path.join('views', __dirname))
 app.set('views',path.join(__dirname,'views'))
 //设置模板引擎
 app.set('view engine','ejs')
@@ -37,6 +36,12 @@ app.use(session({
 
 //flash中间件 用来显示通知
 app.use(flash())
+
+//添加文件上传的中间件
+app.use(require('express-formidable')({
+  uploadDir:path.join(__dirname,'public/img'),  //上传文件目录
+  keepExtensions:true //保留后缀
+}))
 
 //设置模板全局常量
 app.locals.blog = {
