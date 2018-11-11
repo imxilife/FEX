@@ -12,7 +12,8 @@ const pkg = require('./package')
 const app = express()
 
 //设置模板目录
-app.set('views', path.join('views', __dirname))
+//app.set('views', path.join('views', __dirname))
+app.set('views',path.join(__dirname,'views'))
 //设置模板引擎
 app.set('view engine','ejs')
 
